@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class Ticket
+    public class Ticket
     {
         public Status TicketStatus;
         public IncidentType Type { get; set; }
@@ -23,9 +23,9 @@ namespace Model
         {
             Open, Resolved, Close
         }
-        public enum IncidentType { }
+        public enum IncidentType { Hardware, Software }
 
-        public enum Priority { }
+        public enum Priority { High, Medium, Low }
 
     }
 }

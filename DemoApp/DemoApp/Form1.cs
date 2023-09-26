@@ -23,11 +23,16 @@ namespace DemoApp
             
             foreach (var db in dbList)
             {
-                listBox1.Items.Add(db.name);
+                //listBox1.Items.Add(db.name);
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddIncidentBtn_Click(object sender, EventArgs e)
         {
 
         }

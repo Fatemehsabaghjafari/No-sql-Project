@@ -14,22 +14,9 @@ namespace DAL
         public TicketDao() : base() // Call the base class constructor to establish the connection
         {
             collection = database.GetCollection<Ticket>("Garden-group"); // Specify your ticket collection name here
-          //  collection.InsertOne(newTicket);
+          
         }
-        //Ticket newTicket = new Ticket
-        //{
-        //    TicketStatus = Status.Open,
-        //    Type = IncidentType.Hardware,
-        //    IncidentSubject = "Server Issue",
-        //    Id = 1,
-        //    Subject = "Server Down",
-        //    User = "admin",
-        //    Date = DateTime.UtcNow,
-        //    PriorityType = Priority.High,
-        //    Deadline = "2023-09-30",
-        //    Description = "The server is currently down and needs immediate attention."
-        //};
-
+        
        
 
         

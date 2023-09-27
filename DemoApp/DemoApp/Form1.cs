@@ -36,5 +36,10 @@ namespace DemoApp
         {
 
         }
+
+        private void TicketslistView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

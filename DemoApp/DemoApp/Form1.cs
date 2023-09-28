@@ -68,5 +68,10 @@ namespace DemoApp
         {
 
         }
+
+        private void Incidentlbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

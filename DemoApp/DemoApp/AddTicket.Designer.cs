@@ -1,6 +1,6 @@
 ﻿namespace DemoApp
 {
-    partial class Ticket
+    partial class AddTicket
     {
         /// <summary>
         /// Required designer variable.

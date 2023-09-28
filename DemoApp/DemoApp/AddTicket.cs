@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DemoApp
 {
-    public partial class Ticket : Form
+    public partial class AddTicket : Form
     {
-        public Ticket()
+        public AddTicket()
         {
             InitializeComponent();
         }

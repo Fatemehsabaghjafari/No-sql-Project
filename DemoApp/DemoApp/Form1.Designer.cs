@@ -29,11 +29,6 @@ namespace DemoApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,10 +41,10 @@ namespace DemoApp
             this.AddIncidentBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.UserViewPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.IncidentViewPanel.SuspendLayout();
             this.UserViewPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +70,7 @@ namespace DemoApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(-2, 102);
+            this.button1.Location = new System.Drawing.Point(9, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(348, 40);
             this.button1.TabIndex = 3;
@@ -84,7 +79,7 @@ namespace DemoApp
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(345, 102);
+            this.button2.Location = new System.Drawing.Point(352, 102);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(341, 40);
             this.button2.TabIndex = 4;
@@ -93,7 +88,7 @@ namespace DemoApp
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(687, 102);
+            this.button3.Location = new System.Drawing.Point(692, 102);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(346, 40);
             this.button3.TabIndex = 5;
@@ -102,7 +97,7 @@ namespace DemoApp
             // 
             // DashboardPanel
             // 
-            this.DashboardPanel.Location = new System.Drawing.Point(0, 0);
+            this.DashboardPanel.Location = new System.Drawing.Point(3, 3);
             this.DashboardPanel.Name = "DashboardPanel";
             this.DashboardPanel.Size = new System.Drawing.Size(1006, 582);
             this.DashboardPanel.TabIndex = 6;
@@ -113,9 +108,9 @@ namespace DemoApp
             this.IncidentViewPanel.Controls.Add(this.TicketslistView);
             this.IncidentViewPanel.Controls.Add(this.AddIncidentBtn);
             this.IncidentViewPanel.Controls.Add(this.label3);
-            this.IncidentViewPanel.Location = new System.Drawing.Point(0, 0);
+            this.IncidentViewPanel.Location = new System.Drawing.Point(9, 145);
             this.IncidentViewPanel.Name = "IncidentViewPanel";
-            this.IncidentViewPanel.Size = new System.Drawing.Size(1006, 582);
+            this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 611);
             this.IncidentViewPanel.TabIndex = 7;
             // 
             // textBox1
@@ -129,17 +124,12 @@ namespace DemoApp
             // TicketslistView
             // 
             this.TicketslistView.HideSelection = false;
-            this.TicketslistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
             this.TicketslistView.Location = new System.Drawing.Point(31, 131);
             this.TicketslistView.Name = "TicketslistView";
             this.TicketslistView.Size = new System.Drawing.Size(910, 434);
             this.TicketslistView.TabIndex = 4;
             this.TicketslistView.UseCompatibleStateImageBehavior = false;
+            this.TicketslistView.View = System.Windows.Forms.View.Details;
             // 
             // AddIncidentBtn
             // 
@@ -166,42 +156,13 @@ namespace DemoApp
             // 
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.UserViewPanel.Controls.Add(this.button4);
+            this.UserViewPanel.Controls.Add(this.DashboardPanel);
             this.UserViewPanel.Controls.Add(this.textBox2);
             this.UserViewPanel.Controls.Add(this.label4);
             this.UserViewPanel.Location = new System.Drawing.Point(12, 145);
             this.UserViewPanel.Name = "UserViewPanel";
             this.UserViewPanel.Size = new System.Drawing.Size(1006, 805);
             this.UserViewPanel.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(369, 51);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "User management";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.LightGray;
-            this.textBox2.Location = new System.Drawing.Point(28, 72);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(338, 49);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "Filter by E-mail";
             // 
             // button4
             // 
@@ -217,14 +178,43 @@ namespace DemoApp
             this.button4.Text = "+ ADD NEW USER";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.LightGray;
+            this.textBox2.Location = new System.Drawing.Point(28, 72);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox2.Size = new System.Drawing.Size(338, 49);
+            this.textBox2.TabIndex = 11;
+            this.textBox2.Text = "Filter by E-mail";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(369, 51);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "User management";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 996);
-            this.Controls.Add(this.UserViewPanel);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
+            this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

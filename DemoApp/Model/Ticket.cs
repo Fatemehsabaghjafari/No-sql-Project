@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Model
         public Status TicketStatus;
         public IncidentType Type { get; set; }
         public string IncidentSubject { get; set; }
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
         public string Subject { get; set; }
         public string User { get; set; }
         public DateTime Date { get; set; }

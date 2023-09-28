@@ -13,16 +13,19 @@ namespace DAL
     {
         public TicketDao() : base() // Call the base class constructor to establish the connection
         {
-            collection = database.GetCollection<Ticket>("Garden-group"); // Specify your ticket collection name here
+            collection1 = database.GetCollection<Ticket>("Garden-group"); // Specify your ticket collection name here
           
         }
-        
-       
+        public List<Ticket> GetAllTickets()
+        {
+            return collection1.Find(_ => true).ToList();
+        }
 
-        
 
 
-        
+
+
+
 
     }
 }

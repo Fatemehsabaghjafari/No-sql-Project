@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    internal class EmployeeDao
+    public class EmployeeDao : DAO
     {
+
 
     }
 }

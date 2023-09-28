@@ -16,5 +16,13 @@ namespace DemoApp
         {
             InitializeComponent();
         }
+
+        private void loginFromSignupBtn_Click(object sender, EventArgs e)
+        {
+            Login logInForm = new Login();
+            this.Hide();
+            logInForm.ShowDialog();
+            this.Close();
+        }
     }
 }

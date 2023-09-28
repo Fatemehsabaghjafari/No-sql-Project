@@ -17,6 +17,12 @@ namespace DemoApp
             InitializeComponent();
         }
 
-        
+        private void signupFromLoginBtn_Click(object sender, EventArgs e)
+        {
+            SignUp signUpForm = new SignUp();
+            this.Hide();
+            signUpForm.ShowDialog();
+            this.Close();
+        }
     }
 }

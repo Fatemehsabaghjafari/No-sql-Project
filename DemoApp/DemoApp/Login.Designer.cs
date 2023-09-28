@@ -35,6 +35,8 @@
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.signupFromLoginBtn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +54,7 @@
             // 
             this.label.AutoSize = true;
             this.label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label.Location = new System.Drawing.Point(292, 274);
+            this.label.Location = new System.Drawing.Point(292, 283);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(83, 20);
             this.label.TabIndex = 2;
@@ -62,7 +64,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(292, 386);
+            this.label4.Location = new System.Drawing.Point(292, 375);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             // passwordTextbox
             // 
-            this.passwordTextbox.Location = new System.Drawing.Point(296, 418);
+            this.passwordTextbox.Location = new System.Drawing.Point(296, 398);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(359, 26);
             this.passwordTextbox.TabIndex = 7;
@@ -87,7 +89,7 @@
             this.loginBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(394, 523);
+            this.loginBtn.Location = new System.Drawing.Point(395, 476);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(161, 54);
             this.loginBtn.TabIndex = 9;
@@ -105,12 +107,41 @@
             this.label2.Text = "Please provide login credentials to login to NoDesk for The Garden Group ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // signupFromLoginBtn
+            // 
+            this.signupFromLoginBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.signupFromLoginBtn.FlatAppearance.BorderSize = 0;
+            this.signupFromLoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signupFromLoginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupFromLoginBtn.ForeColor = System.Drawing.Color.SteelBlue;
+            this.signupFromLoginBtn.Location = new System.Drawing.Point(520, 551);
+            this.signupFromLoginBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.signupFromLoginBtn.Name = "signupFromLoginBtn";
+            this.signupFromLoginBtn.Size = new System.Drawing.Size(119, 45);
+            this.signupFromLoginBtn.TabIndex = 14;
+            this.signupFromLoginBtn.Text = "Sign Up";
+            this.signupFromLoginBtn.UseVisualStyleBackColor = false;
+            this.signupFromLoginBtn.Click += new System.EventHandler(this.signupFromLoginBtn_Click);
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(291, 561);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(242, 35);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Don\'t have an account?";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(923, 687);
+            this.Controls.Add(this.signupFromLoginBtn);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTextbox);
@@ -135,5 +166,7 @@
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button signupFromLoginBtn;
+        private System.Windows.Forms.Label label6;
     }
 }

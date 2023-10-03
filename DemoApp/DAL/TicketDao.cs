@@ -1,11 +1,7 @@
 ﻿using Model;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Model.Ticket;
 
 namespace DAL
 {
@@ -20,7 +16,10 @@ namespace DAL
         {
             return collection1.Find(_ => true).ToList();
         }
-
+        public void AddTicket(Ticket ticket)
+        {
+            collection1.InsertOne(ticket);
+        }
 
 
 

@@ -14,7 +14,7 @@ namespace Model
         public string IncidentSubject { get; set; }
         public ObjectId Id { get; set; }
         public string Subject { get; set; }
-        public string User { get; set; }
+        public Employee User { get; set; }
         public DateTime Date { get; set; }
         public Priority PriorityType { get; set; }
         public string Deadline { get; set; }

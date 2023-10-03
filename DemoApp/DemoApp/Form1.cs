@@ -30,6 +30,7 @@ namespace DemoApp
             List<Ticket> tickets = ticketService.GetAllTickets();
             TicketView(tickets);
         }
+       
         
         private List<Ticket> TicketView(List<Ticket> tickets)
         {
@@ -46,32 +47,38 @@ namespace DemoApp
             {
                 ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
                 listViewItem.SubItems.Add(ticket.Subject);
-                listViewItem.SubItems.Add(ticket.User);
+                listViewItem.SubItems.Add(ticket.User.FirstName);
                 listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
                 TicketslistView.Items.Add(listViewItem);
             }
             return tickets;
             
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void IncidentManagementBtn_Click(object sender, EventArgs e)
         {
+            DashboardPanel.Visible= false;
+            UserViewPanel.Visible= false;
+            IncidentViewPanel.Visible = true;
+        }
 
+        private void DashboarBtn_Click(object sender, EventArgs e)
+        {
+            DashboardPanel.Visible = true;
+            UserViewPanel.Visible = false;
+            IncidentViewPanel.Visible = false;
+        }
+
+        private void UserManagementBtn_Click(object sender, EventArgs e)
+        {
+            DashboardPanel.Visible = false;
+            UserViewPanel.Visible = true;
+            IncidentViewPanel.Visible = false;
         }
 
         private void AddIncidentBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void TicketslistView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Incidentlbl_Click(object sender, EventArgs e)
-        {
-
+            AddTicket addTicket = new AddTicket();
+            addTicket.ShowDialog();
         }
     }
 }

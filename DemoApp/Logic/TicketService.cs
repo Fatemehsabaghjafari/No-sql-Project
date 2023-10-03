@@ -21,6 +21,10 @@ namespace Logic
         {
             return ticketDao.GetAllTickets();
         }
+        public void AddTicket(Ticket ticket)
+        {
+            ticketDao.AddTicket(ticket);
+        }
 
     }
 }

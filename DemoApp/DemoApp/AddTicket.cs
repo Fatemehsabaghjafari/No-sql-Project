@@ -41,7 +41,7 @@ namespace DemoApp
                 Type = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem,
                 User = (Employee)UserIncidentComboBox.SelectedItem,
                 PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
-                Deadline = IncidentDeadlineComboBox.SelectedItem.ToString(),
+                Deadline = IncidentDeadlinePicker.Value,
                 Description= IncidentDescriptionTxtBox.Text,
 
             };

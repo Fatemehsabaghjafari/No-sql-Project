@@ -43,8 +43,8 @@
             this.IncidentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.UserIncidentComboBox = new System.Windows.Forms.ComboBox();
             this.IncidentPriorityComboBox = new System.Windows.Forms.ComboBox();
-            this.IncidentDeadlineComboBox = new System.Windows.Forms.ComboBox();
             this.IncidentDescriptionTxtBox = new System.Windows.Forms.TextBox();
+            this.IncidentDeadlinePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // IncidentSubjectTxtBox
@@ -187,22 +187,6 @@
             this.IncidentPriorityComboBox.Size = new System.Drawing.Size(121, 24);
             this.IncidentPriorityComboBox.TabIndex = 14;
             // 
-            // IncidentDeadlineComboBox
-            // 
-            this.IncidentDeadlineComboBox.FormattingEnabled = true;
-            this.IncidentDeadlineComboBox.Items.AddRange(new object[] {
-            "1 Day",
-            "2 Days",
-            "3 Days",
-            "4 Days",
-            "5 Days",
-            "6 Days",
-            "7 Days"});
-            this.IncidentDeadlineComboBox.Location = new System.Drawing.Point(190, 296);
-            this.IncidentDeadlineComboBox.Name = "IncidentDeadlineComboBox";
-            this.IncidentDeadlineComboBox.Size = new System.Drawing.Size(121, 24);
-            this.IncidentDeadlineComboBox.TabIndex = 15;
-            // 
             // IncidentDescriptionTxtBox
             // 
             this.IncidentDescriptionTxtBox.Location = new System.Drawing.Point(190, 341);
@@ -210,13 +194,20 @@
             this.IncidentDescriptionTxtBox.Size = new System.Drawing.Size(218, 22);
             this.IncidentDescriptionTxtBox.TabIndex = 16;
             // 
+            // IncidentDeadlinePicker
+            // 
+            this.IncidentDeadlinePicker.Location = new System.Drawing.Point(190, 296);
+            this.IncidentDeadlinePicker.Name = "IncidentDeadlinePicker";
+            this.IncidentDeadlinePicker.Size = new System.Drawing.Size(200, 22);
+            this.IncidentDeadlinePicker.TabIndex = 17;
+            // 
             // AddTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 485);
+            this.Controls.Add(this.IncidentDeadlinePicker);
             this.Controls.Add(this.IncidentDescriptionTxtBox);
-            this.Controls.Add(this.IncidentDeadlineComboBox);
             this.Controls.Add(this.IncidentPriorityComboBox);
             this.Controls.Add(this.UserIncidentComboBox);
             this.Controls.Add(this.IncidentTypeComboBox);
@@ -257,7 +248,7 @@
         private System.Windows.Forms.ComboBox IncidentTypeComboBox;
         private System.Windows.Forms.ComboBox UserIncidentComboBox;
         private System.Windows.Forms.ComboBox IncidentPriorityComboBox;
-        private System.Windows.Forms.ComboBox IncidentDeadlineComboBox;
         private System.Windows.Forms.TextBox IncidentDescriptionTxtBox;
+        private System.Windows.Forms.DateTimePicker IncidentDeadlinePicker;
     }
 }

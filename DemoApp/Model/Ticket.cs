@@ -24,7 +24,7 @@ namespace Model
         {
             Open, Resolved, Close
         }
-        public enum IncidentType { Hardware, Software }
+        public enum IncidentType { Hardware, Software, Network,Security, Database }
 
         public enum Priority { High, Medium, Low }
 

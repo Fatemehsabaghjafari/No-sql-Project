@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace DemoApp
 {
     public partial class Login : Form
     {
+        private readonly EmployeeService employeeService;
         public Login()
         {
             InitializeComponent();
+            employeeService = new EmployeeService();
         }
 
         private void signupFromLoginBtn_Click(object sender, EventArgs e)

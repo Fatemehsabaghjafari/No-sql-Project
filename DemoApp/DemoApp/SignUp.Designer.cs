@@ -43,13 +43,12 @@ namespace DemoApp
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.loginFromSignupBtn = new System.Windows.Forms.Button();
-            this.regularEmployeeRadiobtn = new System.Windows.Forms.RadioButton();
-            this.servicedeskEmployeeRadiobtn = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastnametextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.emailTextbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.roletextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -142,6 +141,7 @@ namespace DemoApp
             this.SignUpbtn.TabIndex = 9;
             this.SignUpbtn.Text = "Sign Up";
             this.SignUpbtn.UseVisualStyleBackColor = false;
+            this.SignUpbtn.Click += new System.EventHandler(this.SignUpbtn_Click);
             // 
             // label3
             // 
@@ -181,29 +181,6 @@ namespace DemoApp
             this.loginFromSignupBtn.UseVisualStyleBackColor = false;
             this.loginFromSignupBtn.Click += new System.EventHandler(this.loginFromSignupBtn_Click);
             // 
-            // regularEmployeeRadiobtn
-            // 
-            this.regularEmployeeRadiobtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.regularEmployeeRadiobtn.Location = new System.Drawing.Point(262, 412);
-            this.regularEmployeeRadiobtn.Name = "regularEmployeeRadiobtn";
-            this.regularEmployeeRadiobtn.Size = new System.Drawing.Size(179, 43);
-            this.regularEmployeeRadiobtn.TabIndex = 13;
-            this.regularEmployeeRadiobtn.TabStop = true;
-            this.regularEmployeeRadiobtn.Text = "Regular Employee";
-            this.regularEmployeeRadiobtn.UseVisualStyleBackColor = true;
-            // 
-            // servicedeskEmployeeRadiobtn
-            // 
-            this.servicedeskEmployeeRadiobtn.AutoSize = true;
-            this.servicedeskEmployeeRadiobtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.servicedeskEmployeeRadiobtn.Location = new System.Drawing.Point(427, 421);
-            this.servicedeskEmployeeRadiobtn.Name = "servicedeskEmployeeRadiobtn";
-            this.servicedeskEmployeeRadiobtn.Size = new System.Drawing.Size(197, 24);
-            this.servicedeskEmployeeRadiobtn.TabIndex = 14;
-            this.servicedeskEmployeeRadiobtn.TabStop = true;
-            this.servicedeskEmployeeRadiobtn.Text = "ServiceDesk Employee";
-            this.servicedeskEmployeeRadiobtn.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -211,14 +188,14 @@ namespace DemoApp
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 20);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Select your role";
+            this.label7.Text = "Your Role";
             // 
-            // textBox1
+            // lastnametextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(264, 333);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(360, 26);
-            this.textBox1.TabIndex = 17;
+            this.lastnametextbox.Location = new System.Drawing.Point(264, 333);
+            this.lastnametextbox.Name = "lastnametextbox";
+            this.lastnametextbox.Size = new System.Drawing.Size(360, 26);
+            this.lastnametextbox.TabIndex = 17;
             // 
             // label8
             // 
@@ -247,19 +224,25 @@ namespace DemoApp
             this.label9.TabIndex = 18;
             this.label9.Text = "First Name";
             // 
+            // roletextBox
+            // 
+            this.roletextBox.Location = new System.Drawing.Point(266, 412);
+            this.roletextBox.Name = "roletextBox";
+            this.roletextBox.Size = new System.Drawing.Size(360, 26);
+            this.roletextBox.TabIndex = 20;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(932, 1038);
+            this.Controls.Add(this.roletextBox);
             this.Controls.Add(this.emailTextbox);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lastnametextbox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.servicedeskEmployeeRadiobtn);
-            this.Controls.Add(this.regularEmployeeRadiobtn);
             this.Controls.Add(this.loginFromSignupBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -296,13 +279,12 @@ namespace DemoApp
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button loginFromSignupBtn;
-        private RadioButton regularEmployeeRadiobtn;
-        private RadioButton servicedeskEmployeeRadiobtn;
         private Label label7;
-        private TextBox textBox1;
+        private TextBox lastnametextbox;
         private Label label8;
         private TextBox emailTextbox;
         private Label label9;
+        private TextBox roletextBox;
     }
 }
 

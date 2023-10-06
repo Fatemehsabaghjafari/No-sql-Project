@@ -42,6 +42,9 @@ namespace DemoApp
             this.UserManagementBtn = new System.Windows.Forms.Button();
             this.DashboardPanel = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AllTicketslbl = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.OpenTicketlbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Bar1 = new CircularProgressBar.CircularProgressBar();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,7 +52,7 @@ namespace DemoApp
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Bar2 = new CircularProgressBar.CircularProgressBar();
-            this.button5 = new System.Windows.Forms.Button();
+            this.TicketViewBtn = new System.Windows.Forms.Button();
             this.Incidentlbl = new System.Windows.Forms.Label();
             this.IncidentViewPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -123,7 +126,7 @@ namespace DemoApp
             this.DashboardPanel.BackColor = System.Drawing.SystemColors.Control;
             this.DashboardPanel.Controls.Add(this.groupBox2);
             this.DashboardPanel.Controls.Add(this.groupBox1);
-            this.DashboardPanel.Controls.Add(this.button5);
+            this.DashboardPanel.Controls.Add(this.TicketViewBtn);
             this.DashboardPanel.Controls.Add(this.Incidentlbl);
             this.DashboardPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DashboardPanel.Location = new System.Drawing.Point(9, 148);
@@ -134,6 +137,9 @@ namespace DemoApp
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Controls.Add(this.AllTicketslbl);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.OpenTicketlbl);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.Bar1);
             this.groupBox2.Controls.Add(this.label7);
@@ -142,6 +148,31 @@ namespace DemoApp
             this.groupBox2.Size = new System.Drawing.Size(414, 463);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
+            // 
+            // AllTicketslbl
+            // 
+            this.AllTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllTicketslbl.Location = new System.Drawing.Point(212, 261);
+            this.AllTicketslbl.Name = "AllTicketslbl";
+            this.AllTicketslbl.Size = new System.Drawing.Size(47, 63);
+            this.AllTicketslbl.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(169, 261);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 63);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "/";
+            // 
+            // OpenTicketlbl
+            // 
+            this.OpenTicketlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenTicketlbl.Location = new System.Drawing.Point(126, 261);
+            this.OpenTicketlbl.Name = "OpenTicketlbl";
+            this.OpenTicketlbl.Size = new System.Drawing.Size(50, 63);
+            this.OpenTicketlbl.TabIndex = 15;
             // 
             // label5
             // 
@@ -181,9 +212,8 @@ namespace DemoApp
             this.Bar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.Bar1.SuperscriptText = "";
             this.Bar1.TabIndex = 8;
-            this.Bar1.Text = "1";
             this.Bar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.Bar1.Value = 50;
+            this.Bar1.Click += new System.EventHandler(this.Bar1_Click);
             // 
             // label7
             // 
@@ -257,17 +287,18 @@ namespace DemoApp
             this.Bar2.TabIndex = 9;
             this.Bar2.Text = "2";
             this.Bar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.Bar2.Value = 5;
+            this.Bar2.Value = 50;
             // 
-            // button5
+            // TicketViewBtn
             // 
-            this.button5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button5.Location = new System.Drawing.Point(832, 38);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(119, 41);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Show List";
-            this.button5.UseVisualStyleBackColor = false;
+            this.TicketViewBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.TicketViewBtn.Location = new System.Drawing.Point(832, 38);
+            this.TicketViewBtn.Name = "TicketViewBtn";
+            this.TicketViewBtn.Size = new System.Drawing.Size(119, 41);
+            this.TicketViewBtn.TabIndex = 11;
+            this.TicketViewBtn.Text = "Show List";
+            this.TicketViewBtn.UseVisualStyleBackColor = false;
+            this.TicketViewBtn.Click += new System.EventHandler(this.TicketViewBtn_Click);
             // 
             // Incidentlbl
             // 
@@ -459,13 +490,16 @@ namespace DemoApp
         private CircularProgressBar.CircularProgressBar Bar2;
         private CircularProgressBar.CircularProgressBar Bar1;
         private System.Windows.Forms.Label Incidentlbl;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button TicketViewBtn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label OpenTicketlbl;
+        private System.Windows.Forms.Label AllTicketslbl;
     }
 }
 

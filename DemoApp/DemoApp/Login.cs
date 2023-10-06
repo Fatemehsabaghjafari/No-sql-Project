@@ -27,5 +27,17 @@ namespace DemoApp
             signUpForm.ShowDialog();
             this.Close();
         }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextBox.Text;
+            string password = passwordTextbox.Text;
+
+            employeeService.AuthenticateUser(username, password);
+
+            SignUp signUpForm = new SignUp();
+            signUpForm.ShowDialog();
+
+        }
     }
 }

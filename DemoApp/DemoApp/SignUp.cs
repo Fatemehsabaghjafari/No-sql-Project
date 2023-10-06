@@ -18,7 +18,6 @@ namespace DemoApp
         {
             InitializeComponent();
             employeeService = new EmployeeService();
-
         }
 
         private void loginFromSignupBtn_Click(object sender, EventArgs e)
@@ -27,8 +26,6 @@ namespace DemoApp
             this.Hide();
             logInForm.ShowDialog();
             this.Close();
-
-            
         }
 
         private void SignUpbtn_Click(object sender, EventArgs e)
@@ -42,7 +39,6 @@ namespace DemoApp
 
             employeeService.AddUserAccount(firstName, lastName, role, email, password);
             MessageBox.Show("User added successfully!");
-
         }
     }
 }

@@ -21,5 +21,24 @@ namespace Logic
             var user = new Employee { FirstName = firstname, LastName = lastname, Role = role, Email = email, Password = password };
             employee.InsertUser(user);
         }
+
+        public bool AuthenticateUser(string username, string password)
+        {
+            // Retrieve user from DAL
+            Employee user = employee.FindByUsername(username);
+
+            if (user != null)
+            {
+                string storedPasswordHash = user.Password;
+
+                // Perform password validation using BCrypt
+                if (password == storedPasswordHash)
+                {
+                    return true; // Authentication successful
+                }
+            }
+
+            return false; // Authentication failed
+        }
     }
 }

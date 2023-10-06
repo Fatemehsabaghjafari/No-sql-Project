@@ -95,6 +95,7 @@
             this.loginBtn.TabIndex = 9;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // label2
             // 

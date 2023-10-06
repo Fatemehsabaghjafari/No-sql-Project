@@ -25,5 +25,11 @@ namespace DAL
             collection.InsertOne(user);
         }
 
+        public Employee FindByUsername(string username)
+        {
+            var filter = Builders<Employee>.Filter.Eq("Firstname", username);
+            return collection.Find(filter).FirstOrDefault();
+        }
+
     }
 }

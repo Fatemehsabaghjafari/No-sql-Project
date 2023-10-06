@@ -17,6 +17,7 @@ namespace DemoApp
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
+         //   Bar1.Value = CalculateProgressValue();
         }
       
 
@@ -105,10 +106,7 @@ namespace DemoApp
 
         private void Bar1_Click(object sender, EventArgs e)
         {
-            
             Bar1.Value = CalculateProgressValue();
-            Bar1.Update();
-
         }
         private int CalculateProgressValue()
         {
@@ -123,7 +121,7 @@ namespace DemoApp
                 }
             }
 
-            Bar1.Maximum = 100; //tickets.Count;
+            Bar1.Maximum = tickets.Count;
 
             // Ensure progressValue is within the valid range
             int progressValue = (int)(((double)openTickets / Bar1.Maximum) * 100);

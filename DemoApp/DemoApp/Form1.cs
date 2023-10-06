@@ -11,12 +11,14 @@ namespace DemoApp
     {
         private Databases databases;
         private TicketService ticketService;
+        private EmployeeService employeeService;
        
         public Form1()
         {
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
+            employeeService = new EmployeeService();
          //   Bar1.Value = CalculateProgressValue();
         }
       
@@ -30,7 +32,10 @@ namespace DemoApp
                 //listBox1.Items.Add(db.name);
             }
             List<Ticket> tickets = ticketService.GetAllTickets();
+            List<Employee> employees = employeeService.GetAllEmployees();
             TicketView(tickets);
+            UserView(employees);
+
             int ticketNumbers = tickets.Count;
             AllTicketslbl.Text = ticketNumbers.ToString();
             int openTickets = 0;
@@ -45,7 +50,29 @@ namespace DemoApp
             OpenTicketlbl.Text = openTickets.ToString();
 
         }
-       
+        private List<Employee> UserView(List<Employee> employees) {
+
+            UserlistView.Items.Clear();
+            UserlistView.Columns.Clear();
+            UserlistView.Columns.Add("ID", 50);
+            UserlistView.Columns.Add("Email", 200);
+            UserlistView.Columns.Add("FirstName", 150);
+            UserlistView.Columns.Add("LastName", 150);
+            UserlistView.Columns.Add("#Tickets", 150);
+
+            foreach (Employee employee in employees)
+            {
+                ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
+                listViewItem.SubItems.Add(employee.Email);
+                listViewItem.SubItems.Add(employee.FirstName);
+                listViewItem.SubItems.Add(employee.LastName);
+                listViewItem.SubItems.Add(employee.Ticket.Id.ToString());
+                UserlistView.Items.Add(listViewItem);
+            }
+
+            return employees;
+        }
+          
         
         private List<Ticket> TicketView(List<Ticket> tickets)
         {
@@ -130,6 +157,10 @@ namespace DemoApp
             return progressValue;
         }
 
-        
+        private void AddUserBtn_Click(object sender, EventArgs e)
+        {
+            AddEmployee employee = new AddEmployee();
+            employee.ShowDialog();
+        }
     }
 }

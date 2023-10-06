@@ -55,7 +55,8 @@ namespace DemoApp
             this.AddIncidentBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.UserViewPanel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.UserlistView = new System.Windows.Forms.ListView();
+            this.AddUserBtn = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -125,7 +126,7 @@ namespace DemoApp
             this.DashboardPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DashboardPanel.Location = new System.Drawing.Point(9, 148);
             this.DashboardPanel.Name = "DashboardPanel";
-            this.DashboardPanel.Size = new System.Drawing.Size(1039, 582);
+            this.DashboardPanel.Size = new System.Drawing.Size(1039, 670);
             this.DashboardPanel.TabIndex = 6;
             // 
             // groupBox2
@@ -207,6 +208,7 @@ namespace DemoApp
             this.Bar1.SuperscriptText = "";
             this.Bar1.TabIndex = 8;
             this.Bar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.Bar1.Value = 68;
             this.Bar1.Click += new System.EventHandler(this.Bar1_Click);
             // 
             // label7
@@ -356,7 +358,8 @@ namespace DemoApp
             // UserViewPanel
             // 
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.UserViewPanel.Controls.Add(this.button4);
+            this.UserViewPanel.Controls.Add(this.UserlistView);
+            this.UserViewPanel.Controls.Add(this.AddUserBtn);
             this.UserViewPanel.Controls.Add(this.textBox2);
             this.UserViewPanel.Controls.Add(this.label4);
             this.UserViewPanel.Location = new System.Drawing.Point(9, 148);
@@ -364,19 +367,30 @@ namespace DemoApp
             this.UserViewPanel.Size = new System.Drawing.Size(1006, 805);
             this.UserViewPanel.TabIndex = 8;
             // 
-            // button4
+            // UserlistView
             // 
-            this.button4.BackColor = System.Drawing.Color.GreenYellow;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button4.Location = new System.Drawing.Point(484, 71);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(190, 57);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "+ ADD NEW USER";
-            this.button4.UseVisualStyleBackColor = false;
+            this.UserlistView.HideSelection = false;
+            this.UserlistView.Location = new System.Drawing.Point(16, 186);
+            this.UserlistView.Name = "UserlistView";
+            this.UserlistView.Size = new System.Drawing.Size(987, 484);
+            this.UserlistView.TabIndex = 19;
+            this.UserlistView.UseCompatibleStateImageBehavior = false;
+            this.UserlistView.View = System.Windows.Forms.View.Details;
+            // 
+            // AddUserBtn
+            // 
+            this.AddUserBtn.BackColor = System.Drawing.Color.GreenYellow;
+            this.AddUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AddUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUserBtn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.AddUserBtn.Location = new System.Drawing.Point(484, 71);
+            this.AddUserBtn.Name = "AddUserBtn";
+            this.AddUserBtn.Size = new System.Drawing.Size(190, 57);
+            this.AddUserBtn.TabIndex = 18;
+            this.AddUserBtn.Text = "+ ADD NEW USER";
+            this.AddUserBtn.UseVisualStyleBackColor = false;
+            this.AddUserBtn.Click += new System.EventHandler(this.AddUserBtn_Click);
             // 
             // textBox2
             // 
@@ -418,10 +432,10 @@ namespace DemoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 996);
+            this.ClientSize = new System.Drawing.Size(1071, 1015);
             this.Controls.Add(this.DashboardPanel);
-            this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.UserViewPanel);
+            this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
             this.Controls.Add(this.IncidentManagementBtn);
@@ -464,7 +478,7 @@ namespace DemoApp
         private System.Windows.Forms.Button AddIncidentBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button AddUserBtn;
         private CircularProgressBar.CircularProgressBar Bar2;
         private CircularProgressBar.CircularProgressBar Bar1;
         private System.Windows.Forms.Label Incidentlbl;
@@ -478,6 +492,7 @@ namespace DemoApp
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label OpenTicketlbl;
         private System.Windows.Forms.Label AllTicketslbl;
+        private System.Windows.Forms.ListView UserlistView;
     }
 }
 

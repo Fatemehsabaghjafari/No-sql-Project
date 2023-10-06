@@ -178,10 +178,6 @@
             // 
             this.IncidentPriorityComboBox.AllowDrop = true;
             this.IncidentPriorityComboBox.FormattingEnabled = true;
-            this.IncidentPriorityComboBox.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
             this.IncidentPriorityComboBox.Location = new System.Drawing.Point(190, 244);
             this.IncidentPriorityComboBox.Name = "IncidentPriorityComboBox";
             this.IncidentPriorityComboBox.Size = new System.Drawing.Size(121, 24);

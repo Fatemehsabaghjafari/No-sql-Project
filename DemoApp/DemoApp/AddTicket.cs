@@ -27,10 +27,18 @@ namespace DemoApp
         private void AddTicket_Load(object sender, EventArgs e)
         {
             List<Employee> employeeList = employeeService.GetAllEmployees();
+
+
             List<string> userNames = employeeList.Select(emp => emp.FirstName).ToList();
             UserIncidentComboBox.DataSource = null;
             UserIncidentComboBox.DataSource = userNames;
-            UserIncidentComboBox.DisplayMember = "FirstName";
+            UserIncidentComboBox.DisplayMember = "";
+
+            Array incidentTypes = Enum.GetValues(typeof(Ticket.IncidentType));
+            IncidentTypeComboBox.DataSource = incidentTypes;
+            IncidentTypeComboBox.DisplayMember = "ToString";
+
+
         }
         public Ticket NewTicket()
         {
@@ -43,7 +51,6 @@ namespace DemoApp
                 PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
                 Deadline = IncidentDeadlinePicker.Value,
                 Description= IncidentDescriptionTxtBox.Text,
-
             };
             ticketService.AddTicket(ticket);
             return ticket;
@@ -52,7 +59,7 @@ namespace DemoApp
 
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
-           NewTicket();
+            NewTicket();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

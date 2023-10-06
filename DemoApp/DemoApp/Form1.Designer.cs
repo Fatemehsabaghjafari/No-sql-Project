@@ -29,11 +29,11 @@ namespace DemoApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@ namespace DemoApp
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.IncidentViewPanel.SuspendLayout();
             this.UserViewPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -130,11 +131,11 @@ namespace DemoApp
             // 
             this.TicketslistView.HideSelection = false;
             this.TicketslistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10});
             this.TicketslistView.Location = new System.Drawing.Point(31, 131);
             this.TicketslistView.Name = "TicketslistView";
             this.TicketslistView.Size = new System.Drawing.Size(910, 434);
@@ -165,6 +166,7 @@ namespace DemoApp
             // UserViewPanel
             // 
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UserViewPanel.Controls.Add(this.listView2);
             this.UserViewPanel.Controls.Add(this.button4);
             this.UserViewPanel.Controls.Add(this.textBox2);
             this.UserViewPanel.Controls.Add(this.label4);
@@ -217,6 +219,15 @@ namespace DemoApp
             this.button4.Text = "+ ADD NEW USER";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // listView2
+            // 
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(29, 161);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(849, 617);
+            this.listView2.TabIndex = 20;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,6 +273,7 @@ namespace DemoApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListView listView2;
     }
 }
 

@@ -27,21 +27,23 @@ namespace DemoApp
         private void AddTicket_Load(object sender, EventArgs e)
         {
             List<Employee> employeeList = employeeService.GetAllEmployees();
-
-
-            List<string> userNames = employeeList.Select(emp => emp.FirstName).ToList();
             UserIncidentComboBox.DataSource = null;
-            UserIncidentComboBox.DataSource = userNames;
-            UserIncidentComboBox.DisplayMember = "";
+            UserIncidentComboBox.DataSource = employeeList;
+            UserIncidentComboBox.DisplayMember = "FirstName";
 
             Array incidentTypes = Enum.GetValues(typeof(Ticket.IncidentType));
             IncidentTypeComboBox.DataSource = incidentTypes;
             IncidentTypeComboBox.DisplayMember = "ToString";
 
+            Array priorities = Enum.GetValues(typeof(Ticket.Priority));
+            IncidentPriorityComboBox.DataSource = priorities;
+            IncidentPriorityComboBox.DisplayMember = "ToString";
+
 
         }
         public Ticket NewTicket()
         {
+           
             Ticket ticket = new Ticket
             {
                 Date = IncidentDateTimePicker.Value,
@@ -60,7 +62,9 @@ namespace DemoApp
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
             NewTicket();
+            MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+    
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {

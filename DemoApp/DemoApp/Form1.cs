@@ -61,7 +61,7 @@ namespace DemoApp
             foreach (Ticket ticket in tickets)
             {
                 ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
-                listViewItem.SubItems.Add(ticket.Subject);
+                listViewItem.SubItems.Add(ticket.IncidentSubject);
                 listViewItem.SubItems.Add(ticket.User.FirstName);
                 listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
                 TicketslistView.Items.Add(listViewItem);

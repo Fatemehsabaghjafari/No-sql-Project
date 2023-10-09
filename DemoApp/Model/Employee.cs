@@ -21,5 +21,5 @@ namespace Model
         public string PhoneNumber { get; set; }
 
     }
-    public enum EmployeeType { Regular, ServiceDesk}
+    public enum EmployeeType { Employee, ServiceDesk}
 }

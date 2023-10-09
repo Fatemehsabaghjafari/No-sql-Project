@@ -162,5 +162,10 @@ namespace DemoApp
             AddEmployee employee = new AddEmployee();
             employee.ShowDialog();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

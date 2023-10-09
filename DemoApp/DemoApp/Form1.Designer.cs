@@ -57,7 +57,7 @@ namespace DemoApp
             this.UserViewPanel = new System.Windows.Forms.Panel();
             this.UserlistView = new System.Windows.Forms.ListView();
             this.AddUserBtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DashboardPanel.SuspendLayout();
@@ -360,7 +360,7 @@ namespace DemoApp
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.UserViewPanel.Controls.Add(this.UserlistView);
             this.UserViewPanel.Controls.Add(this.AddUserBtn);
-            this.UserViewPanel.Controls.Add(this.textBox2);
+            this.UserViewPanel.Controls.Add(this.FindbyEmailtextBox);
             this.UserViewPanel.Controls.Add(this.label4);
             this.UserViewPanel.Location = new System.Drawing.Point(9, 148);
             this.UserViewPanel.Name = "UserViewPanel";
@@ -392,18 +392,19 @@ namespace DemoApp
             this.AddUserBtn.UseVisualStyleBackColor = false;
             this.AddUserBtn.Click += new System.EventHandler(this.AddUserBtn_Click);
             // 
-            // textBox2
+            // FindbyEmailtextBox
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.LightGray;
-            this.textBox2.Location = new System.Drawing.Point(28, 72);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(338, 49);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "Filter by E-mail";
+            this.FindbyEmailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FindbyEmailtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindbyEmailtextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.FindbyEmailtextBox.Location = new System.Drawing.Point(28, 72);
+            this.FindbyEmailtextBox.Multiline = true;
+            this.FindbyEmailtextBox.Name = "FindbyEmailtextBox";
+            this.FindbyEmailtextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.FindbyEmailtextBox.Size = new System.Drawing.Size(338, 49);
+            this.FindbyEmailtextBox.TabIndex = 11;
+            this.FindbyEmailtextBox.Text = "Filter by E-mail";
+            this.FindbyEmailtextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label4
             // 
@@ -433,8 +434,8 @@ namespace DemoApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 1015);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.UserViewPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
@@ -477,7 +478,7 @@ namespace DemoApp
         private System.Windows.Forms.ListView TicketslistView;
         private System.Windows.Forms.Button AddIncidentBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox FindbyEmailtextBox;
         private System.Windows.Forms.Button AddUserBtn;
         private CircularProgressBar.CircularProgressBar Bar2;
         private CircularProgressBar.CircularProgressBar Bar1;

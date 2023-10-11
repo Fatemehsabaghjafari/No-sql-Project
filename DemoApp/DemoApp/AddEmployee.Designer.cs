@@ -37,15 +37,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.passwordCheck = new System.Windows.Forms.CheckBox();
+            this.firstNameTxt = new System.Windows.Forms.TextBox();
+            this.lastNameTxt = new System.Windows.Forms.TextBox();
+            this.userTypeCombo = new System.Windows.Forms.ComboBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
+            this.phoneTxt = new System.Windows.Forms.TextBox();
+            this.locationCombo = new System.Windows.Forms.ComboBox();
+            this.addUserBtn = new System.Windows.Forms.Button();
+            this.cancelUserBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -129,120 +129,120 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Yes, a password e-mail will be sent to the user";
             // 
-            // checkBox1
+            // passwordCheck
             // 
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(294, 596);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(35, 37);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.passwordCheck.Checked = true;
+            this.passwordCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.passwordCheck.Location = new System.Drawing.Point(294, 596);
+            this.passwordCheck.Name = "passwordCheck";
+            this.passwordCheck.Size = new System.Drawing.Size(35, 37);
+            this.passwordCheck.TabIndex = 9;
+            this.passwordCheck.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // firstNameTxt
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(294, 252);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(454, 30);
-            this.textBox1.TabIndex = 10;
+            this.firstNameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameTxt.Location = new System.Drawing.Point(294, 252);
+            this.firstNameTxt.Multiline = true;
+            this.firstNameTxt.Name = "firstNameTxt";
+            this.firstNameTxt.Size = new System.Drawing.Size(454, 30);
+            this.firstNameTxt.TabIndex = 13;
             // 
-            // textBox2
+            // lastNameTxt
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(294, 307);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(454, 30);
-            this.textBox2.TabIndex = 11;
+            this.lastNameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameTxt.Location = new System.Drawing.Point(294, 307);
+            this.lastNameTxt.Multiline = true;
+            this.lastNameTxt.Name = "lastNameTxt";
+            this.lastNameTxt.Size = new System.Drawing.Size(454, 30);
+            this.lastNameTxt.TabIndex = 11;
             // 
-            // comboBox1
+            // userTypeCombo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Service desk employee"});
-            this.comboBox1.Location = new System.Drawing.Point(294, 363);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(454, 28);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.Text = "Employee";
+            this.userTypeCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeCombo.FormattingEnabled = true;
+            this.userTypeCombo.Location = new System.Drawing.Point(294, 363);
+            this.userTypeCombo.Name = "userTypeCombo";
+            this.userTypeCombo.Size = new System.Drawing.Size(454, 28);
+            this.userTypeCombo.TabIndex = 13;
+            this.userTypeCombo.Text = "Employee";
             // 
-            // textBox3
+            // emailTxt
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(294, 421);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(454, 30);
-            this.textBox3.TabIndex = 14;
+            this.emailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailTxt.Location = new System.Drawing.Point(294, 421);
+            this.emailTxt.Multiline = true;
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(454, 30);
+            this.emailTxt.TabIndex = 14;
             // 
-            // textBox4
+            // phoneTxt
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(294, 481);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(454, 30);
-            this.textBox4.TabIndex = 15;
+            this.phoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.phoneTxt.Location = new System.Drawing.Point(294, 481);
+            this.phoneTxt.Multiline = true;
+            this.phoneTxt.Name = "phoneTxt";
+            this.phoneTxt.Size = new System.Drawing.Size(454, 30);
+            this.phoneTxt.TabIndex = 15;
             // 
-            // comboBox2
+            // locationCombo
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.locationCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationCombo.FormattingEnabled = true;
+            this.locationCombo.Items.AddRange(new object[] {
             "Amsterdam",
             "Knuppeldam",
             "Headquarters (HQ)"});
-            this.comboBox2.Location = new System.Drawing.Point(294, 542);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(454, 28);
-            this.comboBox2.TabIndex = 16;
-            this.comboBox2.Text = "Haarlem";
+            this.locationCombo.Location = new System.Drawing.Point(294, 542);
+            this.locationCombo.Name = "locationCombo";
+            this.locationCombo.Size = new System.Drawing.Size(454, 28);
+            this.locationCombo.TabIndex = 16;
+            this.locationCombo.Text = "Haarlem";
             // 
-            // button2
+            // addUserBtn
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(558, 681);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 57);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "ADD USER";
-            this.button2.UseVisualStyleBackColor = false;
+            this.addUserBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.addUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addUserBtn.Location = new System.Drawing.Point(558, 681);
+            this.addUserBtn.Name = "addUserBtn";
+            this.addUserBtn.Size = new System.Drawing.Size(190, 57);
+            this.addUserBtn.TabIndex = 17;
+            this.addUserBtn.Text = "ADD USER";
+            this.addUserBtn.UseVisualStyleBackColor = false;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
-            // button1
+            // cancelUserBtn
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(294, 681);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 57);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "CANCEL";
-            this.button1.UseVisualStyleBackColor = false;
+            this.cancelUserBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cancelUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.cancelUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cancelUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelUserBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cancelUserBtn.Location = new System.Drawing.Point(294, 681);
+            this.cancelUserBtn.Name = "cancelUserBtn";
+            this.cancelUserBtn.Size = new System.Drawing.Size(186, 57);
+            this.cancelUserBtn.TabIndex = 18;
+            this.cancelUserBtn.Text = "CANCEL";
+            this.cancelUserBtn.UseVisualStyleBackColor = false;
+            this.cancelUserBtn.Click += new System.EventHandler(this.cancelUserBtn_Click);
             // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 774);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cancelUserBtn);
+            this.Controls.Add(this.addUserBtn);
+            this.Controls.Add(this.locationCombo);
+            this.Controls.Add(this.phoneTxt);
+            this.Controls.Add(this.emailTxt);
+            this.Controls.Add(this.userTypeCombo);
+            this.Controls.Add(this.lastNameTxt);
+            this.Controls.Add(this.firstNameTxt);
+            this.Controls.Add(this.passwordCheck);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -254,6 +254,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddEmployee";
             this.Text = "Haarlem";
+            this.Load += new System.EventHandler(this.AddEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,15 +271,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox passwordCheck;
+        private System.Windows.Forms.TextBox firstNameTxt;
+        private System.Windows.Forms.TextBox lastNameTxt;
+        private System.Windows.Forms.ComboBox userTypeCombo;
+        private System.Windows.Forms.TextBox emailTxt;
+        private System.Windows.Forms.TextBox phoneTxt;
+        private System.Windows.Forms.ComboBox locationCombo;
+        private System.Windows.Forms.Button addUserBtn;
+        private System.Windows.Forms.Button cancelUserBtn;
     }
 }
 

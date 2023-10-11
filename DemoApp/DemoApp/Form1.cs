@@ -4,6 +4,8 @@ using Logic;
 using Model;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing;
 
 namespace DemoApp
 {
@@ -159,13 +161,8 @@ namespace DemoApp
 
         private void AddUserBtn_Click(object sender, EventArgs e)
         {
-            AddEmployee employee = new AddEmployee();
-            employee.ShowDialog();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            AddEmployee addEmployee = new AddEmployee();
+            addEmployee.ShowDialog();
         }
     }
 }

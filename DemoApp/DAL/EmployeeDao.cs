@@ -16,9 +16,7 @@ namespace DAL
         {
             return collection2.Find(_ => true).ToList();
         }
-        
-
-        
+           
         public void AddEmployee(Employee employee)
         {
             collection2.InsertOne(employee);

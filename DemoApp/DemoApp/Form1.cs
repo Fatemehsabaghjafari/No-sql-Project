@@ -14,14 +14,15 @@ namespace DemoApp
         private Databases databases;
         private TicketService ticketService;
         private EmployeeService employeeService;
-       
+
         public Form1()
         {
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
             employeeService = new EmployeeService();
-         //   Bar1.Value = CalculateProgressValue();
+            //   Bar1.Value = CalculateProgressValue();
+                       
         }
       
 
@@ -81,8 +82,12 @@ namespace DemoApp
 
             return employees;
         }
-          
-        
+        private void AddUserBtn_Click(object sender, EventArgs e)
+        {
+            AddEmployee addEmployee = new AddEmployee();
+            addEmployee.ShowDialog();
+        }
+
         private List<Ticket> TicketView(List<Ticket> tickets)
         {
 
@@ -166,10 +171,5 @@ namespace DemoApp
             return progressValue;
         }
 
-        private void AddUserBtn_Click(object sender, EventArgs e)
-        {
-            AddEmployee addEmployee = new AddEmployee();
-            addEmployee.ShowDialog();
-        }
     }
 }

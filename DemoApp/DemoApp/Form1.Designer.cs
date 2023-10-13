@@ -404,6 +404,7 @@ namespace DemoApp
             this.FindbyEmailtextBox.Size = new System.Drawing.Size(338, 49);
             this.FindbyEmailtextBox.TabIndex = 11;
             this.FindbyEmailtextBox.Text = "Filter by E-mail";
+           
             // 
             // label4
             // 

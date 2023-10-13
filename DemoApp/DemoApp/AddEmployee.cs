@@ -60,7 +60,18 @@ namespace DemoApp
         private void addUserBtn_Click(object sender, EventArgs e)
         {
             NewEmployee();
-            MessageBox.Show("User added successfully!",)
+            MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClearUserInputFields();
+        }
+        private void ClearUserInputFields()
+        {
+
+            firstNameTxt.Text = "";
+            lastNameTxt.Text = "";
+            emailTxt.Text = "";
+            phoneTxt.Text = "";
+            userTypeCombo.SelectedIndex = 0;
+            locationCombo.SelectedIndex = 0;
         }
 
     }

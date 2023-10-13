@@ -60,7 +60,11 @@ namespace DemoApp
             UserlistView.Columns.Add("Email", 200);
             UserlistView.Columns.Add("FirstName", 150);
             UserlistView.Columns.Add("LastName", 150);
-            UserlistView.Columns.Add("#Tickets", 150);
+            UserlistView.Columns.Add("Phone", 150);
+            UserlistView.Columns.Add("Type", 150);
+            UserlistView.Columns.Add("Location", 150);
+
+            //UserlistView.Columns.Add("#Tickets", 150);
 
             foreach (Employee employee in employees)
             {
@@ -68,7 +72,10 @@ namespace DemoApp
                 listViewItem.SubItems.Add(employee.Email);
                 listViewItem.SubItems.Add(employee.FirstName);
                 listViewItem.SubItems.Add(employee.LastName);
-                listViewItem.SubItems.Add(employee.Ticket.Id.ToString());
+                listViewItem.SubItems.Add(employee.PhoneNumber);
+                listViewItem.SubItems.Add(employee.Type.ToString());
+                listViewItem.SubItems.Add(employee.Location.ToString());
+                //listViewItem.SubItems.Add(employee.Ticket.ToString());
                 UserlistView.Items.Add(listViewItem);
             }
 

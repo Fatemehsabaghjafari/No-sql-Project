@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace Model
 {
     public class Employee
-    {       
-        public  Ticket Ticket { get; set; }
+    {
+        //public Ticket Ticket { get; set; }
         public ObjectId Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Password { get; set; }
+        //public string Password { get; set; }
         public string Email { get; set; }
         public Locations Location { get; set; }
         public string PhoneNumber { get; set; }

@@ -21,8 +21,9 @@ namespace DemoApp
             databases = new Databases();
             ticketService = new TicketService();
             employeeService = new EmployeeService();
+            
             //   Bar1.Value = CalculateProgressValue();
-                       
+
         }
       
 

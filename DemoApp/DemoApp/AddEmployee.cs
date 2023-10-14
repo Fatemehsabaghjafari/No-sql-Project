@@ -10,9 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DemoApp
 {
+
     public partial class AddEmployee : Form
     {
         private EmployeeService employeeService;
@@ -21,9 +23,6 @@ namespace DemoApp
             InitializeComponent();
             employeeService = new EmployeeService();
         }
-        
-
-        
 
         private void cancelUserBtn_Click(object sender, EventArgs e)
         {
@@ -33,8 +32,8 @@ namespace DemoApp
 
         private void AddEmployee_Load(object sender, EventArgs e)
         {
-            Array employeeType =Enum.GetValues(typeof(Employee.EmployeeType));
-            userTypeCombo.DataSource= employeeType;
+            Array employeeType = Enum.GetValues(typeof(Employee.EmployeeType));
+            userTypeCombo.DataSource = employeeType;
             userTypeCombo.DisplayMember = "ToString";
 
             Array locations = Enum.GetValues(typeof(Employee.Locations));
@@ -45,18 +44,18 @@ namespace DemoApp
         {
             Employee employee = new Employee
             {
-                FirstName = firstNameTxt.Text, 
+                FirstName = firstNameTxt.Text,
                 LastName = lastNameTxt.Text,
                 Email = emailTxt.Text,
                 PhoneNumber = phoneTxt.Text,
-                Type= (Employee.EmployeeType)userTypeCombo.SelectedValue,
-                Location= (Employee.Locations)locationCombo.SelectedValue,
+                Type = (Employee.EmployeeType)userTypeCombo.SelectedValue,
+                Location = (Employee.Locations)locationCombo.SelectedValue,
             };
             employeeService.AddEmployee(employee);
             return employee;
 
         }
-       
+
         private void addUserBtn_Click(object sender, EventArgs e)
         {
             NewEmployee();
@@ -74,8 +73,8 @@ namespace DemoApp
             locationCombo.SelectedIndex = 0;
         }
 
-        
 
-        
+
+
     }
 }

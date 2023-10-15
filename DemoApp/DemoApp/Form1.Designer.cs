@@ -60,6 +60,7 @@ namespace DemoApp
             this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -358,6 +359,7 @@ namespace DemoApp
             // UserViewPanel
             // 
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UserViewPanel.Controls.Add(this.label9);
             this.UserViewPanel.Controls.Add(this.UserlistView);
             this.UserViewPanel.Controls.Add(this.AddUserBtn);
             this.UserViewPanel.Controls.Add(this.FindbyEmailtextBox);
@@ -369,6 +371,7 @@ namespace DemoApp
             // 
             // UserlistView
             // 
+            this.UserlistView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserlistView.HideSelection = false;
             this.UserlistView.Location = new System.Drawing.Point(16, 186);
             this.UserlistView.Name = "UserlistView";
@@ -379,37 +382,34 @@ namespace DemoApp
             // 
             // AddUserBtn
             // 
-            this.AddUserBtn.BackColor = System.Drawing.Color.GreenYellow;
+            this.AddUserBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.AddUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.AddUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUserBtn.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.AddUserBtn.Location = new System.Drawing.Point(484, 71);
+            this.AddUserBtn.Location = new System.Drawing.Point(751, 70);
             this.AddUserBtn.Name = "AddUserBtn";
             this.AddUserBtn.Size = new System.Drawing.Size(190, 57);
             this.AddUserBtn.TabIndex = 18;
-            this.AddUserBtn.Text = "+ ADD NEW USER";
+            this.AddUserBtn.Text = "ADD NEW USER";
             this.AddUserBtn.UseVisualStyleBackColor = false;
             this.AddUserBtn.Click += new System.EventHandler(this.AddUserBtn_Click);
             // 
             // FindbyEmailtextBox
             // 
-            this.FindbyEmailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FindbyEmailtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FindbyEmailtextBox.ForeColor = System.Drawing.Color.LightGray;
-            this.FindbyEmailtextBox.Location = new System.Drawing.Point(28, 72);
-            this.FindbyEmailtextBox.Multiline = true;
+            this.FindbyEmailtextBox.Location = new System.Drawing.Point(229, 86);
             this.FindbyEmailtextBox.Name = "FindbyEmailtextBox";
             this.FindbyEmailtextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.FindbyEmailtextBox.Size = new System.Drawing.Size(338, 49);
+            this.FindbyEmailtextBox.Size = new System.Drawing.Size(331, 41);
             this.FindbyEmailtextBox.TabIndex = 11;
-            this.FindbyEmailtextBox.Text = "Filter by E-mail";
-           
+            this.FindbyEmailtextBox.TextChanged += new System.EventHandler(this.FindbyEmailtextBox_TextChanged);
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 19);
+            this.label4.Location = new System.Drawing.Point(24, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(369, 51);
             this.label4.TabIndex = 1;
@@ -428,6 +428,16 @@ namespace DemoApp
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(26, 93);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(197, 29);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Filter by E-mail :";
             // 
             // Form1
             // 
@@ -494,6 +504,7 @@ namespace DemoApp
         private System.Windows.Forms.Label OpenTicketlbl;
         private System.Windows.Forms.Label AllTicketslbl;
         private System.Windows.Forms.ListView UserlistView;
+        private System.Windows.Forms.Label label9;
     }
 }
 

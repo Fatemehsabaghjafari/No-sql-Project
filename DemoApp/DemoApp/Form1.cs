@@ -54,7 +54,8 @@ namespace DemoApp
             OpenTicketlbl.Text = openTickets.ToString();
 
         }
-        private List<Employee> UserView(List<Employee> employees) {
+        private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
+        {
 
             UserlistView.Items.Clear();
             UserlistView.Columns.Clear();
@@ -66,19 +67,21 @@ namespace DemoApp
             UserlistView.Columns.Add("Type", 150);
             UserlistView.Columns.Add("Location", 150);
 
-            //UserlistView.Columns.Add("#Tickets", 150);
+
 
             foreach (Employee employee in employees)
             {
-                ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
-                listViewItem.SubItems.Add(employee.Email);
-                listViewItem.SubItems.Add(employee.FirstName);
-                listViewItem.SubItems.Add(employee.LastName);
-                listViewItem.SubItems.Add(employee.PhoneNumber);
-                listViewItem.SubItems.Add(employee.Type.ToString());
-                listViewItem.SubItems.Add(employee.Location.ToString());
-                //listViewItem.SubItems.Add(employee.Ticket.ToString());
-                UserlistView.Items.Add(listViewItem);
+                if (string.IsNullOrEmpty(filterEmail) || employee.Email.ToLower().Contains(filterEmail.ToLower()))
+                {
+                    ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
+                    listViewItem.SubItems.Add(employee.Email);
+                    listViewItem.SubItems.Add(employee.FirstName);
+                    listViewItem.SubItems.Add(employee.LastName);
+                    listViewItem.SubItems.Add(employee.PhoneNumber);
+                    listViewItem.SubItems.Add(employee.Type.ToString());
+                    listViewItem.SubItems.Add(employee.Location.ToString());
+                    UserlistView.Items.Add(listViewItem);
+                }
             }
 
             return employees;
@@ -172,5 +175,10 @@ namespace DemoApp
             return progressValue;
         }
 
+        private void FindbyEmailtextBox_TextChanged(object sender, EventArgs e)
+        {
+            UserView(employeeService.GetAllEmployees(), FindbyEmailtextBox.Text);
+            FindbyEmailtextBox.ForeColor = Color.Black;
+        }
     }
 }

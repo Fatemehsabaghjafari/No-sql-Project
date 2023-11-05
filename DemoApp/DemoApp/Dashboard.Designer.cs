@@ -1,7 +1,7 @@
 ﻿
 namespace DemoApp
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace DemoApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DashboarBtn = new System.Windows.Forms.Button();
@@ -37,6 +37,7 @@ namespace DemoApp
             this.UserManagementBtn = new System.Windows.Forms.Button();
             this.DashboardPanel = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AllTickets_lbl = new System.Windows.Forms.Label();
             this.AllTicketslbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.OpenTicketlbl = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace DemoApp
             this.Bar1 = new CircularProgressBar.CircularProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DealineTicketslbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Bar2 = new CircularProgressBar.CircularProgressBar();
@@ -131,6 +133,7 @@ namespace DemoApp
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Controls.Add(this.AllTickets_lbl);
             this.groupBox2.Controls.Add(this.AllTicketslbl);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.OpenTicketlbl);
@@ -143,13 +146,21 @@ namespace DemoApp
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             // 
+            // AllTickets_lbl
+            // 
+            this.AllTickets_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllTickets_lbl.Location = new System.Drawing.Point(214, 261);
+            this.AllTickets_lbl.Name = "AllTickets_lbl";
+            this.AllTickets_lbl.Size = new System.Drawing.Size(59, 63);
+            this.AllTickets_lbl.TabIndex = 17;
+            this.AllTickets_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // AllTicketslbl
             // 
-            this.AllTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllTicketslbl.Location = new System.Drawing.Point(212, 261);
+            this.AllTicketslbl.Location = new System.Drawing.Point(0, 0);
             this.AllTicketslbl.Name = "AllTicketslbl";
-            this.AllTicketslbl.Size = new System.Drawing.Size(47, 63);
-            this.AllTicketslbl.TabIndex = 17;
+            this.AllTicketslbl.Size = new System.Drawing.Size(100, 23);
+            this.AllTicketslbl.TabIndex = 0;
             // 
             // label10
             // 
@@ -159,6 +170,7 @@ namespace DemoApp
             this.label10.Size = new System.Drawing.Size(47, 63);
             this.label10.TabIndex = 16;
             this.label10.Text = "/";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // OpenTicketlbl
             // 
@@ -167,6 +179,7 @@ namespace DemoApp
             this.OpenTicketlbl.Name = "OpenTicketlbl";
             this.OpenTicketlbl.Size = new System.Drawing.Size(50, 63);
             this.OpenTicketlbl.TabIndex = 15;
+            this.OpenTicketlbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
@@ -207,7 +220,6 @@ namespace DemoApp
             this.Bar1.SuperscriptText = "";
             this.Bar1.TabIndex = 8;
             this.Bar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.Bar1.Click += new System.EventHandler(this.Bar1_Click);
             // 
             // label7
             // 
@@ -221,6 +233,7 @@ namespace DemoApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.DealineTicketslbl);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.Bar2);
@@ -230,6 +243,15 @@ namespace DemoApp
             this.groupBox1.Size = new System.Drawing.Size(414, 463);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // DealineTicketslbl
+            // 
+            this.DealineTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DealineTicketslbl.Location = new System.Drawing.Point(152, 245);
+            this.DealineTicketslbl.Name = "DealineTicketslbl";
+            this.DealineTicketslbl.Size = new System.Drawing.Size(87, 68);
+            this.DealineTicketslbl.TabIndex = 16;
+            this.DealineTicketslbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label6
             // 
@@ -279,7 +301,6 @@ namespace DemoApp
             this.Bar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.Bar2.SuperscriptText = "";
             this.Bar2.TabIndex = 9;
-            this.Bar2.Text = "2";
             this.Bar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.Bar2.Value = 50;
             // 
@@ -478,6 +499,8 @@ namespace DemoApp
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label OpenTicketlbl;
         private System.Windows.Forms.Label AllTicketslbl;
+        private System.Windows.Forms.Label DealineTicketslbl;
+        private System.Windows.Forms.Label AllTickets_lbl;
     }
 }
 

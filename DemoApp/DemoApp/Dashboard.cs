@@ -7,17 +7,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace DemoApp
 {
-    public partial class Form1 : Form
+    public partial class Dashboard : Form
     {
         private Databases databases;
         private TicketService ticketService;
        
-        public Form1()
+        public Dashboard()
         {
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
-         //   Bar1.Value = CalculateProgressValue();
+            Bar1.Value = CalculateProgressValue();
+            Bar2.Value = CalculateProgressValue();
         }
       
 
@@ -32,18 +33,24 @@ namespace DemoApp
             List<Ticket> tickets = ticketService.GetAllTickets();
             TicketView(tickets);
             int ticketNumbers = tickets.Count;
-            AllTicketslbl.Text = ticketNumbers.ToString();
+            AllTickets_lbl.Text = ticketNumbers.ToString();
             int openTickets = 0;
+            int passedDeadlineTickets = 0;
 
             foreach (Ticket ticket in tickets)
             {
                 if (ticket.TicketStatus == Ticket.Status.Open)
                 {
                     openTickets++;
+                    if (ticket.Deadline < DateTime.Now)
+                    {
+                        passedDeadlineTickets++;
+                    }
                 }
+               
             }
             OpenTicketlbl.Text = openTickets.ToString();
-
+            DealineTicketslbl.Text = passedDeadlineTickets.ToString();
         }
        
         
@@ -104,32 +111,77 @@ namespace DemoApp
 
         }
 
-        private void Bar1_Click(object sender, EventArgs e)
-        {
-            Bar1.Value = CalculateProgressValue();
-        }
+        //private void Bar1_Click(object sender, EventArgs e)
+        //{
+        //    Bar1.Value = CalculateProgressValue();
+        //}
+
         private int CalculateProgressValue()
         {
             List<Ticket> tickets = ticketService.GetAllTickets();
             int openTickets = 0;
+            int overdueTickets = 0;
+
+            DateTime currentDate = DateTime.Now;
 
             foreach (Ticket ticket in tickets)
             {
                 if (ticket.TicketStatus == Ticket.Status.Open)
                 {
                     openTickets++;
+                    if (ticket.Deadline < currentDate)
+                    {
+                        overdueTickets++;
+                    }
                 }
             }
 
-            Bar1.Maximum = tickets.Count;
+            int progressValueBar1 = 0;
+            int progressValueBar2 = 0;
 
-            // Ensure progressValue is within the valid range
-            int progressValue = (int)(((double)openTickets / Bar1.Maximum) * 100);
-            progressValue = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValue));
+            if (Bar1.Maximum != 0)
+            {
+                progressValueBar1 = (int)((openTickets / (double)Bar1.Maximum) * 100);
+                progressValueBar1 = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValueBar1));
+                Bar1.Value = progressValueBar1;
+            }
 
-            return progressValue;
+            if (Bar2.Maximum != 0)
+            {
+                progressValueBar2 = (int)((overdueTickets / (double)Bar2.Maximum) * 100);
+                progressValueBar2 = Math.Max(Bar2.Minimum, Math.Min(Bar2.Maximum, progressValueBar2));
+                Bar2.Value = progressValueBar2;
+            }
+
+            Bar1.Refresh();
+            Bar2.Refresh();
+
+            return overdueTickets;
         }
 
-        
+        //private int CalculateProgressValue()
+        //{
+        //    List<Ticket> tickets = ticketService.GetAllTickets();
+        //    int openTickets = 0;
+
+        //    foreach (Ticket ticket in tickets)
+        //    {
+        //        if (ticket.TicketStatus == Ticket.Status.Open)
+        //        {
+        //            openTickets++;
+        //        }
+        //    }
+        //    Bar1.Minimum = 0;
+        //    Bar1.Maximum = tickets.Count;
+
+        //    // Ensure progressValue is within the valid range
+        //    int progressValue = (int)((openTickets / Bar1.Maximum) * 100);
+        //    progressValue = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValue));
+        //    Bar1.Update();
+        //    return progressValue;
+
+        //}
+
+
     }
 }

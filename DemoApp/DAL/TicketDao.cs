@@ -20,7 +20,15 @@ namespace DAL
         {
             collection1.InsertOne(ticket);
         }
+        public void EditTicket(Ticket ticket)
+        {
+            
+        }
 
+        public void DeleteTicket(Incident incident) // Assuming ticketId is a string, adjust the type accordingly
+        {
+            collection1.DeleteOne(x => x.Id == incident.Id);
+        }
 
 
 

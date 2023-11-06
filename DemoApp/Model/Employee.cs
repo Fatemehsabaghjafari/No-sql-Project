@@ -18,7 +18,8 @@ namespace Model
         public string LastName { get; set; }
         public  Ticket Ticket { get; set; }
         public string PhoneNumber { get; set; }
+        public enum EmployeeType {Employee , ServiceDesk }
 
     }
-    public enum EmployeeType { Regular, ServiceDesk}
+  
 }

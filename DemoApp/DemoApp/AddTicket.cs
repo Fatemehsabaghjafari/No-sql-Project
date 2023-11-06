@@ -55,6 +55,7 @@ namespace DemoApp
                 Description= IncidentDescriptionTxtBox.Text,
             };
             ticketService.AddTicket(ticket);
+            ticket.TicketStatus = Ticket.Status.Open;
             return ticket;
         }
         

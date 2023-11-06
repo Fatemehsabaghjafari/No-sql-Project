@@ -207,6 +207,7 @@ namespace DemoApp
             this.Bar1.SuperscriptText = "";
             this.Bar1.TabIndex = 8;
             this.Bar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.Bar1.Value = 68;
             this.Bar1.Click += new System.EventHandler(this.Bar1_Click);
             // 
             // label7
@@ -419,8 +420,8 @@ namespace DemoApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 996);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);

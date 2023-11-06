@@ -159,6 +159,16 @@ namespace DemoApp
             return overdueTickets;
         }
 
+        private void updatebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         //private int CalculateProgressValue()
         //{
         //    List<Ticket> tickets = ticketService.GetAllTickets();

@@ -2,6 +2,8 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using static Model.Ticket;
 
 namespace DAL
 {
@@ -20,19 +22,24 @@ namespace DAL
         {
             collection1.InsertOne(ticket);
         }
+        public void UpdateTicket(Ticket ticket, Status status)
+        {
+            ticket.TicketStatus = status;
+            collection1.ReplaceOne(x => x.Id == ticket.Id, ticket);
+        }
+
         public void EditTicket(Ticket ticket)
         {
             collection1.ReplaceOne(x => x.Id == ticket.Id, ticket);
         }
-
         public void DeleteTicket(Ticket ticket) 
         {
             collection1.DeleteOne(x => x.Id == ticket.Id);
         }
-
-
-
-
-
+        public Ticket GetTicketById(Ticket ticket)
+        {
+            // Use MongoDB query to find a ticket by ID
+            return collection1.Find(x => x.Id == ticket.Id).FirstOrDefault();
+        }
     }
 }

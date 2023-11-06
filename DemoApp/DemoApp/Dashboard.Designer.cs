@@ -61,6 +61,8 @@ namespace DemoApp
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.updatebtn = new System.Windows.Forms.Button();
+            this.deletebtn = new System.Windows.Forms.Button();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -220,6 +222,7 @@ namespace DemoApp
             this.Bar1.SuperscriptText = "";
             this.Bar1.TabIndex = 8;
             this.Bar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.Bar1.Value = 68;
             // 
             // label7
             // 
@@ -327,13 +330,15 @@ namespace DemoApp
             // 
             // IncidentViewPanel
             // 
+            this.IncidentViewPanel.Controls.Add(this.deletebtn);
+            this.IncidentViewPanel.Controls.Add(this.updatebtn);
             this.IncidentViewPanel.Controls.Add(this.textBox1);
             this.IncidentViewPanel.Controls.Add(this.TicketslistView);
             this.IncidentViewPanel.Controls.Add(this.AddIncidentBtn);
             this.IncidentViewPanel.Controls.Add(this.label3);
             this.IncidentViewPanel.Location = new System.Drawing.Point(9, 148);
             this.IncidentViewPanel.Name = "IncidentViewPanel";
-            this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 611);
+            this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 662);
             this.IncidentViewPanel.TabIndex = 7;
             // 
             // textBox1
@@ -435,13 +440,35 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // updatebtn
+            // 
+            this.updatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.updatebtn.Location = new System.Drawing.Point(146, 588);
+            this.updatebtn.Name = "updatebtn";
+            this.updatebtn.Size = new System.Drawing.Size(105, 39);
+            this.updatebtn.TabIndex = 6;
+            this.updatebtn.Text = "Update";
+            this.updatebtn.UseVisualStyleBackColor = false;
+            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
+            // 
+            // deletebtn
+            // 
+            this.deletebtn.BackColor = System.Drawing.Color.Red;
+            this.deletebtn.Location = new System.Drawing.Point(692, 588);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(105, 39);
+            this.deletebtn.TabIndex = 7;
+            this.deletebtn.Text = "Delete";
+            this.deletebtn.UseVisualStyleBackColor = false;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 996);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
@@ -450,7 +477,7 @@ namespace DemoApp
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "Dashboard";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DashboardPanel.ResumeLayout(false);
@@ -501,6 +528,8 @@ namespace DemoApp
         private System.Windows.Forms.Label AllTicketslbl;
         private System.Windows.Forms.Label DealineTicketslbl;
         private System.Windows.Forms.Label AllTickets_lbl;
+        private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button updatebtn;
     }
 }
 

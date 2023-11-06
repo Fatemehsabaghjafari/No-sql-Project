@@ -22,12 +22,12 @@ namespace DAL
         }
         public void EditTicket(Ticket ticket)
         {
-            
+            collection1.ReplaceOne(x => x.Id == ticket.Id, ticket);
         }
 
-        public void DeleteTicket(Incident incident) // Assuming ticketId is a string, adjust the type accordingly
+        public void DeleteTicket(Ticket ticket) 
         {
-            collection1.DeleteOne(x => x.Id == incident.Id);
+            collection1.DeleteOne(x => x.Id == ticket.Id);
         }
 
 

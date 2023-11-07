@@ -52,6 +52,8 @@ namespace DemoApp
             this.TicketViewBtn = new System.Windows.Forms.Button();
             this.Incidentlbl = new System.Windows.Forms.Label();
             this.IncidentViewPanel = new System.Windows.Forms.Panel();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.updatebtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.TicketslistView = new System.Windows.Forms.ListView();
             this.AddIncidentBtn = new System.Windows.Forms.Button();
@@ -61,14 +63,30 @@ namespace DemoApp
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.updatebtn = new System.Windows.Forms.Button();
-            this.deletebtn = new System.Windows.Forms.Button();
+            this.DashboardPanel_R = new System.Windows.Forms.Panel();
+            this.lblIncident = new System.Windows.Forms.Label();
+            this.TicketViewBtnN = new System.Windows.Forms.Button();
+            this.groupBoxN = new System.Windows.Forms.GroupBox();
+            this.groupBoxN1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.circularProgressBarR1 = new CircularProgressBar.CircularProgressBar();
+            this.circularProgressBarN2 = new CircularProgressBar.CircularProgressBar();
+            this.OpenTicketlbl_R = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.AllTickets_lbl_R = new System.Windows.Forms.Label();
+            this.DealineTicketslbl_R = new System.Windows.Forms.Label();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.IncidentViewPanel.SuspendLayout();
             this.UserViewPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.DashboardPanel_R.SuspendLayout();
+            this.groupBoxN.SuspendLayout();
+            this.groupBoxN1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -129,7 +147,7 @@ namespace DemoApp
             this.DashboardPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DashboardPanel.Location = new System.Drawing.Point(9, 148);
             this.DashboardPanel.Name = "DashboardPanel";
-            this.DashboardPanel.Size = new System.Drawing.Size(1039, 582);
+            this.DashboardPanel.Size = new System.Drawing.Size(1039, 662);
             this.DashboardPanel.TabIndex = 6;
             // 
             // groupBox2
@@ -341,6 +359,28 @@ namespace DemoApp
             this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 662);
             this.IncidentViewPanel.TabIndex = 7;
             // 
+            // deletebtn
+            // 
+            this.deletebtn.BackColor = System.Drawing.Color.Red;
+            this.deletebtn.Location = new System.Drawing.Point(692, 588);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(105, 39);
+            this.deletebtn.TabIndex = 7;
+            this.deletebtn.Text = "Delete";
+            this.deletebtn.UseVisualStyleBackColor = false;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // updatebtn
+            // 
+            this.updatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.updatebtn.Location = new System.Drawing.Point(146, 588);
+            this.updatebtn.Name = "updatebtn";
+            this.updatebtn.Size = new System.Drawing.Size(105, 39);
+            this.updatebtn.TabIndex = 6;
+            this.updatebtn.Text = "Update";
+            this.updatebtn.UseVisualStyleBackColor = false;
+            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(31, 68);
@@ -440,35 +480,211 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // updatebtn
+            // DashboardPanel_R
             // 
-            this.updatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.updatebtn.Location = new System.Drawing.Point(146, 588);
-            this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(105, 39);
-            this.updatebtn.TabIndex = 6;
-            this.updatebtn.Text = "Update";
-            this.updatebtn.UseVisualStyleBackColor = false;
-            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
+            this.DashboardPanel_R.Controls.Add(this.groupBoxN1);
+            this.DashboardPanel_R.Controls.Add(this.groupBoxN);
+            this.DashboardPanel_R.Controls.Add(this.TicketViewBtnN);
+            this.DashboardPanel_R.Controls.Add(this.lblIncident);
+            this.DashboardPanel_R.Location = new System.Drawing.Point(12, 145);
+            this.DashboardPanel_R.Name = "DashboardPanel_R";
+            this.DashboardPanel_R.Size = new System.Drawing.Size(1042, 662);
+            this.DashboardPanel_R.TabIndex = 18;
             // 
-            // deletebtn
+            // lblIncident
             // 
-            this.deletebtn.BackColor = System.Drawing.Color.Red;
-            this.deletebtn.Location = new System.Drawing.Point(692, 588);
-            this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(105, 39);
-            this.deletebtn.TabIndex = 7;
-            this.deletebtn.Text = "Delete";
-            this.deletebtn.UseVisualStyleBackColor = false;
-            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            this.lblIncident.AutoSize = true;
+            this.lblIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncident.Location = new System.Drawing.Point(48, 37);
+            this.lblIncident.Name = "lblIncident";
+            this.lblIncident.Size = new System.Drawing.Size(318, 46);
+            this.lblIncident.TabIndex = 0;
+            this.lblIncident.Text = "Current Incident";
+            // 
+            // TicketViewBtnN
+            // 
+            this.TicketViewBtnN.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.TicketViewBtnN.Location = new System.Drawing.Point(850, 44);
+            this.TicketViewBtnN.Name = "TicketViewBtnN";
+            this.TicketViewBtnN.Size = new System.Drawing.Size(98, 41);
+            this.TicketViewBtnN.TabIndex = 1;
+            this.TicketViewBtnN.Text = "Show List";
+            this.TicketViewBtnN.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxN
+            // 
+            this.groupBoxN.Controls.Add(this.AllTickets_lbl_R);
+            this.groupBoxN.Controls.Add(this.label);
+            this.groupBoxN.Controls.Add(this.OpenTicketlbl_R);
+            this.groupBoxN.Controls.Add(this.circularProgressBarR1);
+            this.groupBoxN.Controls.Add(this.label11);
+            this.groupBoxN.Controls.Add(this.label9);
+            this.groupBoxN.Location = new System.Drawing.Point(20, 105);
+            this.groupBoxN.Name = "groupBoxN";
+            this.groupBoxN.Size = new System.Drawing.Size(414, 463);
+            this.groupBoxN.TabIndex = 2;
+            this.groupBoxN.TabStop = false;
+            // 
+            // groupBoxN1
+            // 
+            this.groupBoxN1.Controls.Add(this.DealineTicketslbl_R);
+            this.groupBoxN1.Controls.Add(this.circularProgressBarN2);
+            this.groupBoxN1.Controls.Add(this.label13);
+            this.groupBoxN1.Controls.Add(this.label12);
+            this.groupBoxN1.Location = new System.Drawing.Point(558, 105);
+            this.groupBoxN1.Name = "groupBoxN1";
+            this.groupBoxN1.Size = new System.Drawing.Size(414, 463);
+            this.groupBoxN1.TabIndex = 3;
+            this.groupBoxN1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(62, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(279, 32);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Unresloved Incidents";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(65, 87);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(193, 20);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "All tickets currently open";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(67, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(306, 32);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Incidents past deadline";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(60, 66);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(334, 20);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "These tickets need your immedate attention";
+            // 
+            // circularProgressBarR1
+            // 
+            this.circularProgressBarR1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBarR1.AnimationSpeed = 500;
+            this.circularProgressBarR1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBarR1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBarR1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBarR1.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBarR1.InnerMargin = 2;
+            this.circularProgressBarR1.InnerWidth = -1;
+            this.circularProgressBarR1.Location = new System.Drawing.Point(6, 123);
+            this.circularProgressBarR1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBarR1.Name = "circularProgressBarR1";
+            this.circularProgressBarR1.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBarR1.OuterMargin = -50;
+            this.circularProgressBarR1.OuterWidth = 51;
+            this.circularProgressBarR1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.circularProgressBarR1.ProgressWidth = 50;
+            this.circularProgressBarR1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBarR1.Size = new System.Drawing.Size(320, 320);
+            this.circularProgressBarR1.StartAngle = 270;
+            this.circularProgressBarR1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBarR1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBarR1.SubscriptText = "";
+            this.circularProgressBarR1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBarR1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBarR1.SuperscriptText = "";
+            this.circularProgressBarR1.TabIndex = 8;
+            this.circularProgressBarR1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBarR1.Value = 68;
+            // 
+            // circularProgressBarN2
+            // 
+            this.circularProgressBarN2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBarN2.AnimationSpeed = 500;
+            this.circularProgressBarN2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBarN2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBarN2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBarN2.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBarN2.InnerMargin = 2;
+            this.circularProgressBarN2.InnerWidth = -1;
+            this.circularProgressBarN2.Location = new System.Drawing.Point(61, 111);
+            this.circularProgressBarN2.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBarN2.Name = "circularProgressBarN2";
+            this.circularProgressBarN2.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBarN2.OuterMargin = -50;
+            this.circularProgressBarN2.OuterWidth = 51;
+            this.circularProgressBarN2.ProgressColor = System.Drawing.Color.Red;
+            this.circularProgressBarN2.ProgressWidth = 50;
+            this.circularProgressBarN2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBarN2.Size = new System.Drawing.Size(320, 320);
+            this.circularProgressBarN2.StartAngle = 270;
+            this.circularProgressBarN2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBarN2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBarN2.SubscriptText = ".23";
+            this.circularProgressBarN2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBarN2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBarN2.SuperscriptText = "°C";
+            this.circularProgressBarN2.TabIndex = 7;
+            this.circularProgressBarN2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBarN2.Value = 68;
+            // 
+            // OpenTicketlbl_R
+            // 
+            this.OpenTicketlbl_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenTicketlbl_R.Location = new System.Drawing.Point(101, 258);
+            this.OpenTicketlbl_R.Name = "OpenTicketlbl_R";
+            this.OpenTicketlbl_R.Size = new System.Drawing.Size(50, 63);
+            this.OpenTicketlbl_R.TabIndex = 6;
+            this.OpenTicketlbl_R.Text = "    ";
+            // 
+            // label
+            // 
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(146, 258);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(47, 63);
+            this.label.TabIndex = 7;
+            this.label.Text = "/";
+            this.label.Click += new System.EventHandler(this.label_Click);
+            // 
+            // AllTickets_lbl_R
+            // 
+            this.AllTickets_lbl_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllTickets_lbl_R.Location = new System.Drawing.Point(188, 258);
+            this.AllTickets_lbl_R.Name = "AllTickets_lbl_R";
+            this.AllTickets_lbl_R.Size = new System.Drawing.Size(59, 63);
+            this.AllTickets_lbl_R.TabIndex = 8;
+            this.AllTickets_lbl_R.Text = "     ";
+            // 
+            // DealineTicketslbl_R
+            // 
+            this.DealineTicketslbl_R.Enabled = false;
+            this.DealineTicketslbl_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DealineTicketslbl_R.Location = new System.Drawing.Point(180, 235);
+            this.DealineTicketslbl_R.Name = "DealineTicketslbl_R";
+            this.DealineTicketslbl_R.Size = new System.Drawing.Size(87, 68);
+            this.DealineTicketslbl_R.TabIndex = 16;
+            this.DealineTicketslbl_R.Text = "    ";
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 996);
-            this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.DashboardPanel);
+            this.Controls.Add(this.DashboardPanel_R);
+            this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
@@ -491,6 +707,12 @@ namespace DemoApp
             this.UserViewPanel.ResumeLayout(false);
             this.UserViewPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.DashboardPanel_R.ResumeLayout(false);
+            this.DashboardPanel_R.PerformLayout();
+            this.groupBoxN.ResumeLayout(false);
+            this.groupBoxN.PerformLayout();
+            this.groupBoxN1.ResumeLayout(false);
+            this.groupBoxN1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -530,6 +752,21 @@ namespace DemoApp
         private System.Windows.Forms.Label AllTickets_lbl;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button updatebtn;
+        private System.Windows.Forms.Panel DashboardPanel_R;
+        private System.Windows.Forms.Button TicketViewBtnN;
+        private System.Windows.Forms.Label lblIncident;
+        private System.Windows.Forms.GroupBox groupBoxN1;
+        private System.Windows.Forms.GroupBox groupBoxN;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private CircularProgressBar.CircularProgressBar circularProgressBarR1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private CircularProgressBar.CircularProgressBar circularProgressBarN2;
+        private System.Windows.Forms.Label OpenTicketlbl_R;
+        private System.Windows.Forms.Label DealineTicketslbl_R;
+        private System.Windows.Forms.Label AllTickets_lbl_R;
+        private System.Windows.Forms.Label label;
     }
 }
 

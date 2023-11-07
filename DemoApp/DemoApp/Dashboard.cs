@@ -169,6 +169,11 @@ namespace DemoApp
            
         }
 
+        private void label_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //private int CalculateProgressValue()
         //{
         //    List<Ticket> tickets = ticketService.GetAllTickets();
@@ -187,7 +192,7 @@ namespace DemoApp
         //    // Ensure progressValue is within the valid range
         //    int progressValue = (int)((openTickets / Bar1.Maximum) * 100);
         //    progressValue = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValue));
-        //    Bar1.Update();
+        //    Bar1.Update(); 
         //    return progressValue;
 
         //}

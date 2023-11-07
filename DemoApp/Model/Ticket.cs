@@ -18,7 +18,6 @@ namespace Model
         public DateTime Date { get; set; }
         public Priority PriorityType { get; set; }
         public DateTime Deadline { get; set; }
-        //public string Deadline { get; set; }
         public string Description { get; set; }
 
         public enum Status

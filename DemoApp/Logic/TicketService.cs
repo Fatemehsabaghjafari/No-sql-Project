@@ -25,22 +25,6 @@ namespace Logic
         {
             ticketDao.AddTicket(ticket);
         }
-        public void UpdateTicketStatus(Ticket ticket, Ticket.Status status)
-        {
-            ticketDao.UpdateTicket(ticket, status);
-        }
-        public void EditTicket(Ticket ticket)
-        {
-            ticketDao.EditTicket(ticket);
-        }
-        public void DeleteTicket(Ticket ticket)
-        {
-            ticketDao.DeleteTicket(ticket);
-        }
-        public Ticket GetTicketById(Ticket ticket)
-        {
-            // You need to implement this method in your TicketDao
-            return ticketDao.GetTicketById(ticket);
-        }
+
     }
 }

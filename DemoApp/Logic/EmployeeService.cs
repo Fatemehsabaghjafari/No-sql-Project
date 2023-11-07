@@ -11,7 +11,8 @@ namespace Logic
     public class EmployeeService
     {
 
-        private readonly EmployeeDao employeeDao;
+        //private readonly 
+        EmployeeDao employeeDao;
 
 
         public EmployeeService()
@@ -27,6 +28,7 @@ namespace Logic
             employeeDao.AddEmployee(employee);
         }
       
+
 
     }
 }

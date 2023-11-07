@@ -1,7 +1,11 @@
 ﻿using Model;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace DAL
 {
@@ -12,19 +16,13 @@ namespace DAL
             collection1 = database.GetCollection<Ticket>("Garden-group"); // Specify your ticket collection name here
           
         }
-        public List<Ticket> GetAllTickets()
-        {
-            return collection1.Find(_ => true).ToList();
-        }
-        public void AddTicket(Ticket ticket)
-        {
-            collection1.InsertOne(ticket);
-        }
+       
+       
+
+        
 
 
-
-
-
+        
 
     }
 }

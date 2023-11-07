@@ -60,6 +60,7 @@ namespace DemoApp
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
             NewTicket();
+            MessageBox.Show("User added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

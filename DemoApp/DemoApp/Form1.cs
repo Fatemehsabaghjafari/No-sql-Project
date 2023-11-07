@@ -4,6 +4,8 @@ using Logic;
 using Model;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing;
 
 namespace DemoApp
 {
@@ -11,12 +13,17 @@ namespace DemoApp
     {
         private Databases databases;
         private TicketService ticketService;
-       
+        private EmployeeService employeeService;
+
         public Form1()
         {
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
+            employeeService = new EmployeeService();
+            
+            //   Bar1.Value = CalculateProgressValue();
+
         }
       
 
@@ -29,7 +36,10 @@ namespace DemoApp
                 //listBox1.Items.Add(db.name);
             }
             List<Ticket> tickets = ticketService.GetAllTickets();
+            List<Employee> employees = employeeService.GetAllEmployees();
             TicketView(tickets);
+            UserView(employees);
+
             int ticketNumbers = tickets.Count;
             AllTicketslbl.Text = ticketNumbers.ToString();
             int openTickets = 0;
@@ -44,8 +54,44 @@ namespace DemoApp
             OpenTicketlbl.Text = openTickets.ToString();
 
         }
-       
-        
+        private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
+        {
+
+            UserlistView.Items.Clear();
+            UserlistView.Columns.Clear();
+            UserlistView.Columns.Add("ID", 50);
+            UserlistView.Columns.Add("Email", 200);
+            UserlistView.Columns.Add("FirstName", 150);
+            UserlistView.Columns.Add("LastName", 150);
+            UserlistView.Columns.Add("Phone", 150);
+            UserlistView.Columns.Add("Type", 150);
+            UserlistView.Columns.Add("Location", 150);
+
+
+
+            foreach (Employee employee in employees)
+            {
+                if (string.IsNullOrEmpty(filterEmail) || employee.Email.ToLower().Contains(filterEmail.ToLower()))
+                {
+                    ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
+                    listViewItem.SubItems.Add(employee.Email);
+                    listViewItem.SubItems.Add(employee.FirstName);
+                    listViewItem.SubItems.Add(employee.LastName);
+                    listViewItem.SubItems.Add(employee.PhoneNumber);
+                    listViewItem.SubItems.Add(employee.Type.ToString());
+                    listViewItem.SubItems.Add(employee.Location.ToString());
+                    UserlistView.Items.Add(listViewItem);
+                }
+            }
+
+            return employees;
+        }
+        private void AddUserBtn_Click(object sender, EventArgs e)
+        {
+            AddEmployee addEmployee = new AddEmployee();
+            addEmployee.ShowDialog();
+        }
+
         private List<Ticket> TicketView(List<Ticket> tickets)
         {
 
@@ -105,10 +151,7 @@ namespace DemoApp
 
         private void Bar1_Click(object sender, EventArgs e)
         {
-            
             Bar1.Value = CalculateProgressValue();
-            Bar1.Update();
-
         }
         private int CalculateProgressValue()
         {
@@ -123,7 +166,7 @@ namespace DemoApp
                 }
             }
 
-            Bar1.Maximum = 100; //tickets.Count;
+            Bar1.Maximum = tickets.Count;
 
             // Ensure progressValue is within the valid range
             int progressValue = (int)(((double)openTickets / Bar1.Maximum) * 100);
@@ -132,6 +175,10 @@ namespace DemoApp
             return progressValue;
         }
 
-        
+        private void FindbyEmailtextBox_TextChanged(object sender, EventArgs e)
+        {
+            UserView(employeeService.GetAllEmployees(), FindbyEmailtextBox.Text);
+            FindbyEmailtextBox.ForeColor = Color.Black;
+        }
     }
 }

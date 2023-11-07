@@ -159,6 +159,13 @@
     <Compile Include="AddTicket.Designer.cs">
       <DependentUpon>AddTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransferTicketDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferTicketDialog.Designer.cs">
+      <DependentUpon>TransferTicketDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnauthorizedTicketAccessException.cs" />
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +187,9 @@
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferTicketDialog.resx">
+      <DependentUpon>TransferTicketDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="libmongocrypt.dylib" />
     <None Include="libmongocrypt.so" />

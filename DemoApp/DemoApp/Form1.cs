@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing;
+using System.Linq;
 
 namespace DemoApp
 {
@@ -14,7 +15,9 @@ namespace DemoApp
         private Databases databases;
         private TicketService ticketService;
         private EmployeeService employeeService;
-
+        private Employee loggedInEmployee;
+        private List<Ticket> tickets;
+        private string searchTerm;
         public Form1()
         {
             InitializeComponent();
@@ -35,9 +38,9 @@ namespace DemoApp
             {
                 //listBox1.Items.Add(db.name);
             }
-            List<Ticket> tickets = ticketService.GetAllTickets();
+            tickets = ticketService.GetAllTickets();
             List<Employee> employees = employeeService.GetAllEmployees();
-            TicketView(tickets);
+            TicketView(tickets, searchTerm);
             UserView(employees);
 
             int ticketNumbers = tickets.Count;
@@ -53,6 +56,17 @@ namespace DemoApp
             }
             OpenTicketlbl.Text = openTickets.ToString();
 
+            //if (loggedInEmployee != null)
+            //{
+            //    if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
+            //    {
+            //        TransferTicketBtn.Visible = true; // Show the button for service desk employees
+            //    }
+            //    else
+            //    {
+            //        TransferTicketBtn.Visible = false; // Hide the button for other employee types
+            //    }
+            //}
         }
         private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
         {
@@ -92,27 +106,68 @@ namespace DemoApp
             addEmployee.ShowDialog();
         }
 
-        private List<Ticket> TicketView(List<Ticket> tickets)
-        {
+        //private void TicketView(List<Ticket> tickets)
+        //{
+        //    TicketslistView.Items.Clear();
+        //    TicketslistView.Columns.Clear();
+        //    TicketslistView.Columns.Add("ID", 100);
+        //    TicketslistView.Columns.Add("Subject", 300);
+        //    TicketslistView.Columns.Add("User", 150);
+        //    TicketslistView.Columns.Add("Date", 150);
+        //    TicketslistView.Columns.Add("Status", 150);
 
+        //    Employee loggedInEmployee = GetLoggedInEmployee();
+
+        //    foreach (Ticket ticket in tickets)
+        //    {
+        //        // If logged-in employee is a regular employee, only show their own tickets
+        //        if (loggedInEmployee.Type == Employee.EmployeeType.Employee && ticket.User == loggedInEmployee)
+        //        {
+        //            ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+        //            listViewItem.SubItems.Add(ticket.IncidentSubject);
+        //            listViewItem.SubItems.Add(ticket.User.FirstName);
+        //            listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+        //            TicketslistView.Items.Add(listViewItem);
+        //        }
+        //        // If logged-in employee is a service desk employee, show all tickets
+        //        else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
+        //        {
+        //            ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+        //            listViewItem.SubItems.Add(ticket.IncidentSubject);
+        //            listViewItem.SubItems.Add(ticket.User.FirstName);
+        //            listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+        //            TicketslistView.Items.Add(listViewItem);
+        //        }
+        //    }
+        //}
+
+
+        private List<Ticket> TicketView(List<Ticket> tickets, string searchTerm)
+        {
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
             TicketslistView.Columns.Add("ID", 100);
-            TicketslistView.Columns.Add("Subject", 300);
-            TicketslistView.Columns.Add("User", 150);
+            TicketslistView.Columns.Add("Subject", 200);
+            TicketslistView.Columns.Add("User", 100);
             TicketslistView.Columns.Add("Date", 150);
-            TicketslistView.Columns.Add("Status", 150);
+            TicketslistView.Columns.Add("Status", 100);
 
             foreach (Ticket ticket in tickets)
             {
-                ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
-                listViewItem.SubItems.Add(ticket.IncidentSubject);
-                listViewItem.SubItems.Add(ticket.User.FirstName);
-                listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
-                TicketslistView.Items.Add(listViewItem);
+                if (string.IsNullOrWhiteSpace(searchTerm) ||
+                    ticket.IncidentSubject.ToLower().Contains(searchTerm.ToLower()) ||
+                    ticket.User.FirstName.ToLower().Contains(searchTerm.ToLower()))
+                {
+                    ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+                    listViewItem.SubItems.Add(ticket.IncidentSubject);
+                    listViewItem.SubItems.Add(ticket.User.FirstName);
+                    listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+                    TicketslistView.Items.Add(listViewItem);
+                }
             }
+
             return tickets;
-            
+
         }
         private void IncidentManagementBtn_Click(object sender, EventArgs e)
         {
@@ -139,6 +194,22 @@ namespace DemoApp
         {
             AddTicket addTicket = new AddTicket();
             addTicket.ShowDialog();
+            //try
+            //{
+            //    if (loggedInEmployee != null)
+            //    {
+            //        AddTicket addTicket = new AddTicket(loggedInEmployee);
+            //        addTicket.ShowDialog();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("No logged-in employee found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+            //catch (UnauthorizedTicketAccessException ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void TicketViewBtn_Click(object sender, EventArgs e)
@@ -153,6 +224,38 @@ namespace DemoApp
         {
             Bar1.Value = CalculateProgressValue();
         }
+        //private int CalculateProgressValue()
+        //{
+        //    List<Ticket> tickets;
+        //    Employee loggedInEmployee = GetLoggedInEmployee();
+
+        //    if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
+        //    {
+        //        // This is a regular employee, get only their own tickets
+        //        tickets = ticketService.GetTicketsByUser(loggedInEmployee);
+        //    }
+        //    else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
+        //    {
+        //        // This is a service desk employee, get all tickets
+        //        tickets = ticketService.GetAllTickets();
+        //    }
+        //    else
+        //    {
+        //        // Handle other employee types if necessary
+        //        tickets = new List<Ticket>();
+        //    }
+
+        //    int openTickets = tickets.Count(t => t.TicketStatus == Ticket.Status.Open);
+
+        //    Bar1.Maximum = tickets.Count;
+
+        //    // Ensure progressValue is within the valid range
+        //    int progressValue = (int)(((double)openTickets / Bar1.Maximum) * 100);
+        //    progressValue = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValue));
+
+        //    return progressValue;
+        //}
+
         private int CalculateProgressValue()
         {
             List<Ticket> tickets = ticketService.GetAllTickets();
@@ -180,5 +283,80 @@ namespace DemoApp
             UserView(employeeService.GetAllEmployees(), FindbyEmailtextBox.Text);
             FindbyEmailtextBox.ForeColor = Color.Black;
         }
+
+        private void searchTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            searchTerm = SearchTxtBox.Text.ToLower();
+
+            List<Ticket> filteredTickets = new List<Ticket>();
+
+            foreach (Ticket ticket in tickets) // Assuming 'tickets' is the list you're filtering
+            {
+                if (string.IsNullOrWhiteSpace(searchTerm) ||
+                    ticket.IncidentSubject.ToLower().Contains(searchTerm) ||
+                    ticket.User.FirstName.ToLower().Contains(searchTerm))
+                {
+                    filteredTickets.Add(ticket);
+                }
+            }
+
+            TicketView(filteredTickets, searchTerm);
+        }
+
+        private void TransferTicketBtn_Click(object sender, EventArgs e)
+        {
+            //if (TicketslistView.SelectedItems.Count == 1)
+            //{
+            //    Ticket selectedTicket = tickets.Find(ticket => ticket.Id.ToString() == TicketslistView.SelectedItems[0].Text);
+
+            //    TransferTicketDialog transferDialog = new TransferTicketDialog(employeeService.GetAllEmployees());
+            //    DialogResult result = transferDialog.ShowDialog();
+
+            //    if (result == DialogResult.OK)
+            //    {
+            //        selectedTicket.User = transferDialog.SelectedEmployee;
+            //        ticketService.UpdateTicket(selectedTicket);
+            //        TicketView(tickets, searchTerm);
+            //        RefreshListView();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a ticket to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+        private void DeleteTicketBtn_Click(object sender, EventArgs e)
+        {
+            if (TicketslistView.SelectedItems.Count == 1)
+            {
+                ListViewItem selectedListViewItem = TicketslistView.SelectedItems[0];
+                Ticket selectedTicket = tickets.Find(ticket => ticket.Id.ToString() == selectedListViewItem.Text);
+
+                // Remove the ticket from the list
+                tickets.Remove(selectedTicket);
+
+                // Remove the item from the ListView
+                TicketslistView.Items.Remove(selectedListViewItem);
+
+                // Call a method to delete the ticket from your data storage (e.g., database or file)
+                ticketService.DeleteTicket(selectedTicket);
+                RefreshListView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a ticket to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void RefreshListView()
+        {
+            // Clear the items in the ListView
+            TicketslistView.Items.Clear();
+
+            // Repopulate the ListView with updated data
+            List<Ticket> updatedTickets = ticketService.GetAllTickets();
+            TicketView(updatedTickets, searchTerm);
+        }
+
     }
 }

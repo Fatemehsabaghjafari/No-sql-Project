@@ -50,17 +50,20 @@ namespace DemoApp
             this.TicketViewBtn = new System.Windows.Forms.Button();
             this.Incidentlbl = new System.Windows.Forms.Label();
             this.IncidentViewPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TransferTicketBtn = new System.Windows.Forms.Button();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.TicketslistView = new System.Windows.Forms.ListView();
             this.AddIncidentBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.UserViewPanel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.UserlistView = new System.Windows.Forms.ListView();
             this.AddUserBtn = new System.Windows.Forms.Button();
             this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteTicketBtn = new System.Windows.Forms.Button();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -309,28 +312,42 @@ namespace DemoApp
             // 
             // IncidentViewPanel
             // 
-            this.IncidentViewPanel.Controls.Add(this.textBox1);
+            this.IncidentViewPanel.Controls.Add(this.DeleteTicketBtn);
+            this.IncidentViewPanel.Controls.Add(this.button1);
+            this.IncidentViewPanel.Controls.Add(this.TransferTicketBtn);
+            this.IncidentViewPanel.Controls.Add(this.SearchTxtBox);
             this.IncidentViewPanel.Controls.Add(this.TicketslistView);
             this.IncidentViewPanel.Controls.Add(this.AddIncidentBtn);
             this.IncidentViewPanel.Controls.Add(this.label3);
-            this.IncidentViewPanel.Location = new System.Drawing.Point(9, 148);
+            this.IncidentViewPanel.Location = new System.Drawing.Point(0, 3);
             this.IncidentViewPanel.Name = "IncidentViewPanel";
             this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 611);
             this.IncidentViewPanel.TabIndex = 7;
             // 
-            // textBox1
+            // TransferTicketBtn
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 22);
-            this.textBox1.TabIndex = 5;
+            this.TransferTicketBtn.Location = new System.Drawing.Point(31, 545);
+            this.TransferTicketBtn.Name = "TransferTicketBtn";
+            this.TransferTicketBtn.Size = new System.Drawing.Size(135, 42);
+            this.TransferTicketBtn.TabIndex = 6;
+            this.TransferTicketBtn.Text = "TransferTicket";
+            this.TransferTicketBtn.UseVisualStyleBackColor = true;
+            this.TransferTicketBtn.Click += new System.EventHandler(this.TransferTicketBtn_Click);
+            // 
+            // SearchTxtBox
+            // 
+            this.SearchTxtBox.Location = new System.Drawing.Point(39, 54);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(184, 22);
+            this.SearchTxtBox.TabIndex = 5;
+            this.SearchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 
             // TicketslistView
             // 
             this.TicketslistView.HideSelection = false;
-            this.TicketslistView.Location = new System.Drawing.Point(31, 131);
+            this.TicketslistView.Location = new System.Drawing.Point(31, 83);
             this.TicketslistView.Name = "TicketslistView";
-            this.TicketslistView.Size = new System.Drawing.Size(910, 434);
+            this.TicketslistView.Size = new System.Drawing.Size(993, 443);
             this.TicketslistView.TabIndex = 4;
             this.TicketslistView.UseCompatibleStateImageBehavior = false;
             this.TicketslistView.View = System.Windows.Forms.View.Details;
@@ -339,7 +356,7 @@ namespace DemoApp
             // 
             this.AddIncidentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.AddIncidentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddIncidentBtn.Location = new System.Drawing.Point(765, 49);
+            this.AddIncidentBtn.Location = new System.Drawing.Point(853, 23);
             this.AddIncidentBtn.Name = "AddIncidentBtn";
             this.AddIncidentBtn.Size = new System.Drawing.Size(176, 41);
             this.AddIncidentBtn.TabIndex = 3;
@@ -359,6 +376,7 @@ namespace DemoApp
             // UserViewPanel
             // 
             this.UserViewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UserViewPanel.Controls.Add(this.IncidentViewPanel);
             this.UserViewPanel.Controls.Add(this.label9);
             this.UserViewPanel.Controls.Add(this.UserlistView);
             this.UserViewPanel.Controls.Add(this.AddUserBtn);
@@ -368,6 +386,16 @@ namespace DemoApp
             this.UserViewPanel.Name = "UserViewPanel";
             this.UserViewPanel.Size = new System.Drawing.Size(1006, 805);
             this.UserViewPanel.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(26, 93);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(197, 29);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Filter by E-mail :";
             // 
             // UserlistView
             // 
@@ -429,15 +457,24 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label9
+            // button1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(26, 93);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(197, 29);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Filter by E-mail :";
+            this.button1.Location = new System.Drawing.Point(246, 545);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 42);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // DeleteTicketBtn
+            // 
+            this.DeleteTicketBtn.Location = new System.Drawing.Point(404, 545);
+            this.DeleteTicketBtn.Name = "DeleteTicketBtn";
+            this.DeleteTicketBtn.Size = new System.Drawing.Size(118, 42);
+            this.DeleteTicketBtn.TabIndex = 8;
+            this.DeleteTicketBtn.Text = "Delete Ticket";
+            this.DeleteTicketBtn.UseVisualStyleBackColor = true;
+            this.DeleteTicketBtn.Click += new System.EventHandler(this.DeleteTicketBtn_Click);
             // 
             // Form1
             // 
@@ -446,7 +483,6 @@ namespace DemoApp
             this.ClientSize = new System.Drawing.Size(1071, 1015);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.DashboardPanel);
-            this.Controls.Add(this.IncidentViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
             this.Controls.Add(this.IncidentManagementBtn);
@@ -484,7 +520,7 @@ namespace DemoApp
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel UserViewPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.ListView TicketslistView;
         private System.Windows.Forms.Button AddIncidentBtn;
         private System.Windows.Forms.Label label4;
@@ -505,6 +541,9 @@ namespace DemoApp
         private System.Windows.Forms.Label AllTicketslbl;
         private System.Windows.Forms.ListView UserlistView;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button TransferTicketBtn;
+        private System.Windows.Forms.Button DeleteTicketBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

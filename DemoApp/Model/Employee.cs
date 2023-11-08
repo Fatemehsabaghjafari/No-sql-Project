@@ -13,7 +13,8 @@ namespace Model
     public class Employee
     {
         //public Ticket Ticket { get; set; }
-        //public string Password { get; set; }
+        public string Password { get; set; }
+        public string Username {  get; set; }
 
         public ObjectId Id { get; set; }
         public string FirstName { get; set; }

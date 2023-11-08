@@ -21,30 +21,22 @@ namespace Logic
         {
             return ticketDao.GetAllTickets();
         }
+        public List<Ticket> GetTicketsByUser(Employee user)
+        {
+            return ticketDao.GetTicketsByUser(user);
+        }
         public void AddTicket(Ticket ticket)
         {
             ticketDao.AddTicket(ticket);
         }
-        public void UpdateTicketStatus(Ticket ticket, Ticket.Status status)
+        public void UpdateTicket(Ticket ticket)
         {
-            ticketDao.UpdateTicket(ticket, status);
-        }
-        public void EditTicket(Ticket ticket)
-        {
-            ticketDao.EditTicket(ticket);
+            ticketDao.UpdateTicket(ticket);
         }
         public void DeleteTicket(Ticket ticket)
         {
             ticketDao.DeleteTicket(ticket);
         }
-        public Ticket GetTicketById(Ticket ticket)
-        {
-           
-            return ticketDao.GetTicketById(ticket);
-        }
-        public List<Ticket> GetSortedTickets()
-        {
-            return ticketDao.GetSortedTicketsByPriority();
-        }
+
     }
 }

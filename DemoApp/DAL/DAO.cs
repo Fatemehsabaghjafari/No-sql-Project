@@ -18,7 +18,7 @@ namespace DAL
             client = new MongoClient("mongodb+srv://mahbaan77:stBmNXvZNQDwVllz@cluster0.uwmve3e.mongodb.net/DemoChart?retryWrites=true&w=majority");
             database = client.GetDatabase("assignment1"); // Specify your database name here
             collection1 = database.GetCollection<Ticket>("Garden-group"); // Specify your collection name here
-            collection2 = database.GetCollection<Employee>("Employee");
+            collection2 = database.GetCollection<Employee>("employee");
         }
 
         public List<Databases_Model> GetDatabases()

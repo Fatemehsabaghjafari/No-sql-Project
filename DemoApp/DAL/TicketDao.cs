@@ -1,9 +1,11 @@
 ﻿using Model;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using static Model.Ticket;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace DAL
 {
@@ -14,6 +16,7 @@ namespace DAL
             collection1 = database.GetCollection<Ticket>("Garden-group"); // Specify your ticket collection name here
           
         }
+
         public List<Ticket> GetAllTickets()
         {
             return collection1.Find(_ => true).ToList();
@@ -22,33 +25,29 @@ namespace DAL
         {
             collection1.InsertOne(ticket);
         }
-        public void UpdateTicket(Ticket ticket, Status status)
+
+        public List<Ticket> GetTicketsByUser(Employee user)
         {
-            ticket.TicketStatus = status;
-            collection1.ReplaceOne(x => x.Id == ticket.Id, ticket);
+            return collection1.Find(ticket => ticket.User.Id == user.Id).ToList();
         }
 
-        public void EditTicket(Ticket ticket)
+        public void DeleteTicket(Ticket ticket)
         {
-            collection1.ReplaceOne(x => x.Id == ticket.Id, ticket);
+            var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            collection1.DeleteOne(filter);
         }
-        public void DeleteTicket(Ticket ticket) 
+
+        public void UpdateTicket(Ticket ticket)
         {
-            collection1.DeleteOne(x => x.Id == ticket.Id);
+            var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            var update = Builders<Ticket>.Update
+                .Set(t => t.IncidentSubject, ticket.IncidentSubject)
+                .Set(t => t.User, ticket.User)
+                .Set(t => t.Date, ticket.Date)
+                .Set(t => t.TicketStatus, ticket.TicketStatus);
+
+            collection1.UpdateOne(filter, update);
         }
-        public Ticket GetTicketById(Ticket ticket)
-        {
-            // Use MongoDB query to find a ticket by ID
-            return collection1.Find(x => x.Id == ticket.Id).FirstOrDefault();
-        }
-        public List<Ticket> GetSortedTicketsByPriority()
-        {
-            return collection1.Find(_ => true)
-            .Sort(Builders<Ticket>.Sort.Ascending(t => t.PriorityType))
-            .ToList();
-            //return collection1.Find(_ => true)
-            //    .SortByDescending(t => (int) t.PriorityType)
-            //    .ToList();
-        }
+
     }
 }

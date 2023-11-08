@@ -39,8 +39,12 @@ namespace Logic
         }
         public Ticket GetTicketById(Ticket ticket)
         {
-            // You need to implement this method in your TicketDao
+           
             return ticketDao.GetTicketById(ticket);
+        }
+        public List<Ticket> GetSortedTickets()
+        {
+            return ticketDao.GetSortedTicketsByPriority();
         }
     }
 }

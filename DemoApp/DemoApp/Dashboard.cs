@@ -20,8 +20,8 @@ namespace DemoApp
             Bar1.Value = CalculateProgressValue();
             Bar2.Value = CalculateProgressValue();
         }
-      
 
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             var dbList = databases.Get_All_Databases();
@@ -30,7 +30,8 @@ namespace DemoApp
             {
                 //listBox1.Items.Add(db.name);
             }
-            List<Ticket> tickets = ticketService.GetAllTickets();
+            //List<Ticket> tickets = ticketService.GetAllTickets();
+            List<Ticket> tickets = ticketService.GetSortedTickets();
             TicketView(tickets);
             int ticketNumbers = tickets.Count;
             AllTickets_lbl.Text = ticketNumbers.ToString();
@@ -52,30 +53,34 @@ namespace DemoApp
             OpenTicketlbl.Text = openTickets.ToString();
             DealineTicketslbl.Text = passedDeadlineTickets.ToString();
         }
-       
-        
+
+        private int ticketCounter = 1;
         private List<Ticket> TicketView(List<Ticket> tickets)
         {
 
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
-            TicketslistView.Columns.Add("ID", 100);
-            TicketslistView.Columns.Add("Subject", 300);
+            TicketslistView.Columns.Add("ID", 30);
+            TicketslistView.Columns.Add("Subject", 100);
             TicketslistView.Columns.Add("User", 150);
             TicketslistView.Columns.Add("Date", 150);
             TicketslistView.Columns.Add("Status", 150);
+            TicketslistView.Columns.Add("Priority", 150);
 
             foreach (Ticket ticket in tickets)
             {
-                ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+                ListViewItem listViewItem = new ListViewItem(ticketCounter.ToString());
+                ticketCounter++;
+                //ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
                 listViewItem.SubItems.Add(ticket.Subject);
                 listViewItem.SubItems.Add(ticket.User.FirstName);
                 listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
                 TicketslistView.Items.Add(listViewItem);
             }
-            return tickets;
             
+            return tickets;
         }
+
         private void IncidentManagementBtn_Click(object sender, EventArgs e)
         {
             DashboardPanel.Visible= false;

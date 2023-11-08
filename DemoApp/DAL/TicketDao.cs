@@ -36,7 +36,6 @@ namespace DAL
         {
             collection1.DeleteOne(x => x.Id == ticket.Id);
         }
-
         public Ticket GetTicketById(Ticket ticket)
         {
             // Use MongoDB query to find a ticket by ID

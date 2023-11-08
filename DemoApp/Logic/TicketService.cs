@@ -37,9 +37,9 @@ namespace Logic
         {
             ticketDao.DeleteTicket(ticket);
         }
+
         public Ticket GetTicketById(Ticket ticket)
         {
-           
             return ticketDao.GetTicketById(ticket);
         }
         public List<Ticket> GetSortedTickets()

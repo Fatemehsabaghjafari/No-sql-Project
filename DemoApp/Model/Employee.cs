@@ -9,6 +9,17 @@ namespace Model
 {
     public class Employee
     {
+
+       
+     
+
+       
+
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+        public enum EmployeeType { Regular, ServiceDesk }
+
         public ObjectId Id { get; set; }  
         public string Password { get; set; }
         public EmployeeType Type { get; set; }
@@ -19,6 +30,7 @@ namespace Model
         public  Ticket Ticket { get; set; }
         public string PhoneNumber { get; set; }
 
+
     }
-    public enum EmployeeType { Regular, ServiceDesk}
+    
 }

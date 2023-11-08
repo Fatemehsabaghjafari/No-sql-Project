@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Model.Employee;
 
 namespace Logic
 {
@@ -16,9 +17,9 @@ namespace Logic
             employee = new EmployeeDao();
         }
 
-        public void AddUserAccount(string firstname, string lastname, string role, string email, string password)
+        public void AddUserAccount(string firstname, string lastname, EmployeeType type, string email, string userName, string password)
         {
-            var user = new Employee { FirstName = firstname, LastName = lastname, Role = role, Email = email, Password = password };
+            var user = new Employee { FirstName = firstname, LastName = lastname, Type = type, Email = email, Username=userName, Password = password };
             employee.InsertUser(user);
         }
 

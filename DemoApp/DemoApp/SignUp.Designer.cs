@@ -48,7 +48,7 @@ namespace DemoApp
             this.label8 = new System.Windows.Forms.Label();
             this.emailTextbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.roletextBox = new System.Windows.Forms.TextBox();
+            this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -224,12 +224,14 @@ namespace DemoApp
             this.label9.TabIndex = 18;
             this.label9.Text = "First Name";
             // 
-            // roletextBox
+            // comboBoxRole
             // 
-            this.roletextBox.Location = new System.Drawing.Point(266, 412);
-            this.roletextBox.Name = "roletextBox";
-            this.roletextBox.Size = new System.Drawing.Size(360, 26);
-            this.roletextBox.TabIndex = 20;
+            this.comboBoxRole.AllowDrop = true;
+            this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Location = new System.Drawing.Point(266, 424);
+            this.comboBoxRole.Name = "comboBoxRole";
+            this.comboBoxRole.Size = new System.Drawing.Size(168, 28);
+            this.comboBoxRole.TabIndex = 21;
             // 
             // SignUp
             // 
@@ -237,7 +239,7 @@ namespace DemoApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(932, 1038);
-            this.Controls.Add(this.roletextBox);
+            this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.emailTextbox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lastnametextbox);
@@ -259,6 +261,7 @@ namespace DemoApp
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "SignUp";
             this.Text = "SignUp";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,7 +287,7 @@ namespace DemoApp
         private Label label8;
         private TextBox emailTextbox;
         private Label label9;
-        private TextBox roletextBox;
+        private ComboBox comboBoxRole;
     }
 }
 

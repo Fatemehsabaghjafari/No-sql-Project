@@ -42,5 +42,9 @@ namespace Logic
            
             return ticketDao.GetTicketById(ticket);
         }
+        public List<Ticket> GetSortedTickets()
+        {
+            return ticketDao.GetSortedTicketsByPriority();
+        }
     }
 }

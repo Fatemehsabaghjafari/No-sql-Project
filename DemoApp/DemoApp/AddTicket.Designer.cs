@@ -158,6 +158,9 @@
             // IncidentTypeComboBox
             // 
             this.IncidentTypeComboBox.FormattingEnabled = true;
+            this.IncidentTypeComboBox.Items.AddRange(new object[] {
+            "Software",
+            "Hardware"});
             this.IncidentTypeComboBox.Location = new System.Drawing.Point(190, 154);
             this.IncidentTypeComboBox.Name = "IncidentTypeComboBox";
             this.IncidentTypeComboBox.Size = new System.Drawing.Size(121, 24);

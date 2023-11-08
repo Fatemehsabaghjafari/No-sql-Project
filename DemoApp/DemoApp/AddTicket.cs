@@ -16,30 +16,27 @@ namespace DemoApp
     {
         private TicketService ticketService;
         private EmployeeService employeeService;
-      //  private Employee loggedInEmployee;
-
+       
         public AddTicket()
         {
             InitializeComponent();
             ticketService= new TicketService();
             employeeService = new EmployeeService();
-         //   this.loggedInEmployee = loggedInEmployee;
         }
 
         private void AddTicket_Load(object sender, EventArgs e)
         {
             List<Employee> employeeList = employeeService.GetAllEmployees();
+
+
+            List<string> userNames = employeeList.Select(emp => emp.FirstName).ToList();
             UserIncidentComboBox.DataSource = null;
-            UserIncidentComboBox.DataSource = employeeList;
-            UserIncidentComboBox.DisplayMember = "FirstName";
+            UserIncidentComboBox.DataSource = userNames;
+            UserIncidentComboBox.DisplayMember = "";
 
             Array incidentTypes = Enum.GetValues(typeof(Ticket.IncidentType));
             IncidentTypeComboBox.DataSource = incidentTypes;
             IncidentTypeComboBox.DisplayMember = "ToString";
-
-            Array priorities = Enum.GetValues(typeof(Ticket.Priority));
-            IncidentPriorityComboBox.DataSource = priorities;
-            IncidentPriorityComboBox.DisplayMember = "ToString";
 
 
         }
@@ -49,43 +46,21 @@ namespace DemoApp
             {
                 Date = IncidentDateTimePicker.Value,
                 IncidentSubject = IncidentSubjectTxtBox.Text,
-                User = (Employee)UserIncidentComboBox.SelectedItem,
                 Type = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem,
+                User = (Employee)UserIncidentComboBox.SelectedItem,
                 PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
                 Deadline = IncidentDeadlinePicker.Value,
-                Description = IncidentDescriptionTxtBox.Text,
-                TicketStatus = Ticket.Status.Open
+                Description= IncidentDescriptionTxtBox.Text,
             };
-          
-            //if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
-            //{
-            //    // This is a regular employee, can only add ticket for themselves
-            //    if (ticket.User != loggedInEmployee)
-            //    {
-            //        throw new UnauthorizedTicketAccessException("Regular employees can only add tickets for themselves.");
-            //    }
-
-            //    ticket.User = loggedInEmployee;
-            //}
-            //else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
-            //{
-            //    // This is a service desk employee, can add ticket for all employees
-            //    ticket.User = (Employee)UserIncidentComboBox.SelectedItem;
-            //}
-
             ticketService.AddTicket(ticket);
             return ticket;
         }
-
-
-
+        
 
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
             NewTicket();
-            MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-    
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {

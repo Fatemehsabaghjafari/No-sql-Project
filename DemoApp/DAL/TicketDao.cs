@@ -42,14 +42,5 @@ namespace DAL
             // Use MongoDB query to find a ticket by ID
             return collection1.Find(x => x.Id == ticket.Id).FirstOrDefault();
         }
-        public List<Ticket> GetSortedTicketsByPriority()
-        {
-            return collection1.Find(_ => true)
-            .Sort(Builders<Ticket>.Sort.Ascending(t => t.PriorityType))
-            .ToList();
-            //return collection1.Find(_ => true)
-            //    .SortByDescending(t => (int) t.PriorityType)
-            //    .ToList();
-        }
     }
 }

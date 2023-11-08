@@ -1,7 +1,4 @@
-
-
-
-﻿using Model;
+using Model;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;

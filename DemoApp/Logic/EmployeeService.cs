@@ -11,8 +11,6 @@ namespace Logic
 {
     public class EmployeeService
     {
-
-       
         public void AddUserAccount(string firstname, string lastname, EmployeeType type, string email, string userName, string password)
         {
             var user = new Employee { FirstName = firstname, LastName = lastname, Type = type, Email = email, Username=userName, Password = password };

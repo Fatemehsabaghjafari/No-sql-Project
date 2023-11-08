@@ -11,12 +11,8 @@ namespace Logic
 {
     public class EmployeeService
     {
-        private EmployeeDao employee;
-        public EmployeeService()
-        {
-            employee = new EmployeeDao();
-        }
 
+       
         public void AddUserAccount(string firstname, string lastname, EmployeeType type, string email, string userName, string password)
         {
             var user = new Employee { FirstName = firstname, LastName = lastname, Type = type, Email = email, Username=userName, Password = password };
@@ -41,5 +37,23 @@ namespace Logic
 
             return false; // Authentication failed
         }
+
+
+        private readonly EmployeeDao employeeDao;
+
+
+        public EmployeeService()
+        {
+            employeeDao = new EmployeeDao();
+        }
+        public List<Employee> GetAllEmployees()
+        {
+            return employeeDao.GetAllEmployees();
+        }
+        public void AddEmployee(Employee employee)
+        {
+            employeeDao.AddEmployee(employee);
+        }
+
     }
 }

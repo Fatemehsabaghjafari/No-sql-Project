@@ -34,10 +34,9 @@ namespace DemoApp
             string password = passwordTextbox.Text;
 
             employeeService.AuthenticateUser(username, password);
-            MessageBox.Show("User login successfully!");
 
-          
-
+            SignUp signUpForm = new SignUp();
+            signUpForm.ShowDialog();
         }
     }
 }

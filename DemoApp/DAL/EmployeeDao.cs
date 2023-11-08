@@ -21,6 +21,14 @@ namespace DAL
         {
             collection2.InsertOne(employee);
         }
+        public List<Employee> GetServiceDeskEmployees()
+        {
+            return collection2.Find(employee => employee.Type == Employee.EmployeeType.ServiceDesk).ToList();
+        }
+        public List<Employee> GetNormalEmployees()
+        {
+            return collection2.Find(employee => employee.Type == Employee.EmployeeType.Employee).ToList();
+        }
 
     }
 }

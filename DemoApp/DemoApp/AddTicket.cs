@@ -54,8 +54,9 @@ namespace DemoApp
                 PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
                 Deadline = IncidentDeadlinePicker.Value,
                 Description = IncidentDescriptionTxtBox.Text,
+                TicketStatus = Ticket.Status.Open
             };
-
+          
             //if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
             //{
             //    // This is a regular employee, can only add ticket for themselves
@@ -73,8 +74,6 @@ namespace DemoApp
             //}
 
             ticketService.AddTicket(ticket);
-            ticket.TicketStatus = Ticket.Status.Open;
-
             return ticket;
         }
 

@@ -27,6 +27,14 @@ namespace Logic
         {
             employeeDao.AddEmployee(employee);
         }
+        public List <Employee> GetNormalEmployees()
+        {
+            return employeeDao.GetNormalEmployees();
+        }
+        public List<Employee> GetServiceDeskEmployee()
+        {
+            return employeeDao.GetServiceDeskEmployees();
+        }
       
 
 

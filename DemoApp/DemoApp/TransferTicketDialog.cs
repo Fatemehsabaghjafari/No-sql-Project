@@ -17,16 +17,16 @@ namespace DemoApp
         public TransferTicketDialog(List<Employee> employees)
         {
             InitializeComponent();
-            List<Employee> serviceDeskEmployees = employees.Where(employee => employee.Type == Employee.EmployeeType.ServiceDesk).ToList();
-            foreach (Employee employee in serviceDeskEmployees)
+           
+            foreach (Employee employee in employees)
             {
-                listBoxEmployees.Items.Add(employee.FirstName +" "+ employee.LastName);
+                listBoxEmployees.Items.Add(employee);
             }
         }
 
         private void buttonTransfer_Click(object sender, EventArgs e)
         {
-            if (listBoxEmployees.SelectedItem != null)
+            if (listBoxEmployees.SelectedItem != null && listBoxEmployees.SelectedItem is Employee)
             {
                 SelectedEmployee = (Employee)listBoxEmployees.SelectedItem;
                 DialogResult = DialogResult.OK;

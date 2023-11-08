@@ -25,8 +25,7 @@ namespace DemoApp
             ticketService = new TicketService();
             employeeService = new EmployeeService();
             
-            //   Bar1.Value = CalculateProgressValue();
-
+            //Bar1.Value = CalculateProgressValue();
         }
       
 
@@ -146,14 +145,19 @@ namespace DemoApp
         {
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
-            TicketslistView.Columns.Add("ID", 100);
+            TicketslistView.Columns.Add("ID", 200);
             TicketslistView.Columns.Add("Subject", 200);
             TicketslistView.Columns.Add("User", 100);
-            TicketslistView.Columns.Add("Date", 150);
+            TicketslistView.Columns.Add("Date", 120);
             TicketslistView.Columns.Add("Status", 100);
+            TicketslistView.Columns.Add("Type", 100);
+            TicketslistView.Columns.Add("Priority", 100);
 
             foreach (Ticket ticket in tickets)
             {
+                string typeAsString = Enum.GetName(typeof(Ticket.IncidentType), ticket.Type);
+                string priorityAsString = Enum.GetName(typeof(Ticket.Priority), ticket.PriorityType);
+
                 if (string.IsNullOrWhiteSpace(searchTerm) ||
                     ticket.IncidentSubject.ToLower().Contains(searchTerm.ToLower()) ||
                     ticket.User.FirstName.ToLower().Contains(searchTerm.ToLower()))
@@ -162,6 +166,9 @@ namespace DemoApp
                     listViewItem.SubItems.Add(ticket.IncidentSubject);
                     listViewItem.SubItems.Add(ticket.User.FirstName);
                     listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+                    listViewItem.SubItems.Add(ticket.TicketStatus.ToString());
+                    listViewItem.SubItems.Add(typeAsString);
+                    listViewItem.SubItems.Add(priorityAsString);
                     TicketslistView.Items.Add(listViewItem);
                 }
             }
@@ -305,25 +312,24 @@ namespace DemoApp
 
         private void TransferTicketBtn_Click(object sender, EventArgs e)
         {
-            //if (TicketslistView.SelectedItems.Count == 1)
-            //{
-            //    Ticket selectedTicket = tickets.Find(ticket => ticket.Id.ToString() == TicketslistView.SelectedItems[0].Text);
+            if (TicketslistView.SelectedItems.Count == 1)
+            {
+                Ticket selectedTicket = tickets.Find(ticket => ticket.Id.ToString() == TicketslistView.SelectedItems[0].Text);
 
-            //    TransferTicketDialog transferDialog = new TransferTicketDialog(employeeService.GetAllEmployees());
-            //    DialogResult result = transferDialog.ShowDialog();
+                TransferTicketDialog transferDialog = new TransferTicketDialog(employeeService.GetAllEmployees());
+                DialogResult result = transferDialog.ShowDialog();
 
-            //    if (result == DialogResult.OK)
-            //    {
-            //        selectedTicket.User = transferDialog.SelectedEmployee;
-            //        ticketService.UpdateTicket(selectedTicket);
-            //        TicketView(tickets, searchTerm);
-            //        RefreshListView();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a ticket to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                if (result == DialogResult.OK)
+                {
+                    selectedTicket.User = transferDialog.SelectedEmployee;
+                    ticketService.UpdateTicket(selectedTicket);
+                    TicketView(tickets, searchTerm);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a ticket to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DeleteTicketBtn_Click(object sender, EventArgs e)
@@ -358,5 +364,26 @@ namespace DemoApp
             TicketView(updatedTickets, searchTerm);
         }
 
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (TicketslistView.SelectedItems.Count == 1)
+            {
+                Ticket selectedTicket = tickets.Find(ticket => ticket.Id.ToString() == TicketslistView.SelectedItems[0].Text);
+
+                // Create an instance of EditTicketForm and pass the selected ticket
+                EditTicketForm editTicketForm = new EditTicketForm(selectedTicket);
+                DialogResult result = editTicketForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    // Ticket was successfully updated, refresh the view
+                    TicketView(tickets, searchTerm);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a ticket to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

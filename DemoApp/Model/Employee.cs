@@ -24,6 +24,12 @@ namespace Model
         public EmployeeType Type { get; set; }
         public enum EmployeeType { Employee, ServiceDesk }
         public enum Locations {Haarlem, Amsterdam, Knuppeldam, Headquarters }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
+
     }
    
 

@@ -37,17 +37,17 @@ namespace DAL
             collection1.DeleteOne(filter);
         }
 
-        //public void UpdateTicket(Ticket ticket)
-        //{
-        //    var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
-        //    var update = Builders<Ticket>.Update
-        //        .Set(t => t.IncidentSubject, ticket.IncidentSubject)
-        //        .Set(t => t.User, ticket.User)
-        //        .Set(t => t.Date, ticket.Date)
-        //        .Set(t => t.TicketStatus, ticket.TicketStatus);
+        public void UpdateTicket(Ticket ticket)
+        {
+            var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);
+            var update = Builders<Ticket>.Update
+                .Set(t => t.IncidentSubject, ticket.IncidentSubject)
+                .Set(t => t.User, ticket.User)
+                .Set(t => t.Date, ticket.Date)
+                .Set(t => t.TicketStatus, ticket.TicketStatus);
 
-        //    collection1.UpdateOne(filter, update);
-        //}
+            collection1.UpdateOne(filter, update);
+        }
 
     }
 }

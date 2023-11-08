@@ -10,6 +10,7 @@ namespace Model
 {
     public class Employee
     {
+        public string Username { get; set; }
         public ObjectId Id { get; set; }  
         public string Password { get; set; }
         public EmployeeType Type { get; set; }

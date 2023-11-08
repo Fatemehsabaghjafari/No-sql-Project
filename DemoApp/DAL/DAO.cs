@@ -10,13 +10,15 @@ namespace DAL
         private MongoClient client;
         protected IMongoDatabase database;
         protected IMongoCollection<Ticket> collection;
+        protected IMongoCollection<Employee> collection2;
 
 
         public DAO()
         {
             client = new MongoClient("mongodb+srv://mahbaan77:stBmNXvZNQDwVllz@cluster0.uwmve3e.mongodb.net/DemoChart?retryWrites=true&w=majority");
             database = client.GetDatabase("assignment1"); // Specify your database name here
-            collection = database.GetCollection<Ticket>("Garden-group"); // Specify your collection name here
+            collection = database.GetCollection<Ticket>("Garden-group");
+            collection2 = database.GetCollection<Employee>("Employee");// Specify your collection name here
         }
 
         public List<Databases_Model> GetDatabases()

@@ -9,26 +9,19 @@ namespace DAL
 {
     public class EmployeeDao : DAO
     {
-        private MongoClient User;
-        protected IMongoDatabase database;
-        private readonly IMongoCollection<Employee> collection;
-
-        public EmployeeDao()
+        public EmployeeDao() : base() // Call the base class constructor to establish the connection
         {
-            User = new MongoClient("mongodb+srv://mahbaan77:stBmNXvZNQDwVllz@cluster0.uwmve3e.mongodb.net/DemoChart?retryWrites=true&w=majority");
-            database = User.GetDatabase("assignment1"); // Specify your database name here
-            collection = database.GetCollection<Employee>("employee"); // Specify your collection name here
+            collection2 = database.GetCollection<Employee>("Employee"); // Specify your ticket collection name here
         }
-
-        public void InsertUser(Employee user)
+            public void InsertUser(Employee user)
         {
-            collection.InsertOne(user);
+            collection2.InsertOne(user);
         }
 
         public Employee FindByUsername(string username)
         {
             var filter = Builders<Employee>.Filter.Eq("Firstname", username);
-            return collection.Find(filter).FirstOrDefault();
+            return collection2.Find(filter).FirstOrDefault();
         }
 
     }

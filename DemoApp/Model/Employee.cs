@@ -21,7 +21,6 @@ namespace Model
         public enum EmployeeType { Regular, ServiceDesk }
 
         public ObjectId Id { get; set; }  
-        public string Password { get; set; }
         public EmployeeType Type { get; set; }
         public string Location { get; set; }
         public string Email { get; set; }

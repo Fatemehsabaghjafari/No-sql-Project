@@ -1,7 +1,7 @@
 
 
 
-﻿using Model;
+using Model;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace DAL
             collection2 = database.GetCollection<Employee>("Employee"); // Specify your ticket collection name here
 
         }
-            public void InsertUser(Employee user)
+        public void InsertUser(Employee user)
         {
             collection2.InsertOne(user);
         }
@@ -27,9 +27,6 @@ namespace DAL
             return collection2.Find(filter).FirstOrDefault();
         }
 
-
-
-        }
         public List<Employee> GetAllEmployees()
         {
             return collection2.Find(_ => true).ToList();
@@ -40,3 +37,4 @@ namespace DAL
         }
     }
 }
+

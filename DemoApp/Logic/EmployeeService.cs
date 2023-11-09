@@ -16,13 +16,13 @@ namespace Logic
         public void AddUserAccount(string firstname, string lastname, EmployeeType type, string email, string userName, string password)
         {
             var user = new Employee { FirstName = firstname, LastName = lastname, Type = type, Email = email, Username=userName, Password = password };
-            employee.InsertUser(user);
+            employeeDao.InsertUser(user);
         }
 
         public bool AuthenticateUser(string username, string password)
         {
             // Retrieve user from DAL
-            Employee user = employee.FindByUsername(username);
+            Employee user = employeeDao.FindByUsername(username);
 
             if (user != null)
             {

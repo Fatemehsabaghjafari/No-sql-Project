@@ -14,10 +14,12 @@ namespace DemoApp
     public partial class Login : Form
     {
         private readonly EmployeeService employeeService;
+        private Form1 form1;
         public Login()
         {
             InitializeComponent();
             employeeService = new EmployeeService();
+            form1 = new Form1();
         }
 
         private void signupFromLoginBtn_Click(object sender, EventArgs e)
@@ -34,9 +36,16 @@ namespace DemoApp
             string password = passwordTextbox.Text;
 
             employeeService.AuthenticateUser(username, password);
-            MessageBox.Show("User login successfully!");
+            
+                form1.Show();
+                MessageBox.Show("User login successfully!");
+            
+            //else
+            //{
+            //    MessageBox.Show("User login failed !");
+            //}
 
-          
+
 
         }
     }

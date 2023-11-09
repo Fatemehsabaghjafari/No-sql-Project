@@ -22,7 +22,7 @@ namespace DemoApp
 
         private void signupFromLoginBtn_Click(object sender, EventArgs e)
         {
-            SignUp signUpForm = new SignUp();
+            Signup signUpForm = new Signup();
             this.Hide();
             signUpForm.ShowDialog();
             this.Close();
@@ -35,7 +35,7 @@ namespace DemoApp
 
             employeeService.AuthenticateUser(username, password);
 
-            SignUp signUpForm = new SignUp();
+            Signup signUpForm = new Signup();
             signUpForm.ShowDialog();
         }
     }

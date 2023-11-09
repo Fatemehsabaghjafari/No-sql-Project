@@ -44,6 +44,7 @@ namespace DemoApp
             this.Bar1 = new CircularProgressBar.CircularProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DealineTicketslbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Bar2 = new CircularProgressBar.CircularProgressBar();
@@ -150,6 +151,7 @@ namespace DemoApp
             // 
             // AllTicketslbl
             // 
+            this.AllTicketslbl.BackColor = System.Drawing.SystemColors.ControlLight;
             this.AllTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllTicketslbl.Location = new System.Drawing.Point(212, 261);
             this.AllTicketslbl.Name = "AllTicketslbl";
@@ -158,6 +160,7 @@ namespace DemoApp
             // 
             // label10
             // 
+            this.label10.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(169, 261);
             this.label10.Name = "label10";
@@ -167,6 +170,7 @@ namespace DemoApp
             // 
             // OpenTicketlbl
             // 
+            this.OpenTicketlbl.BackColor = System.Drawing.SystemColors.ControlLight;
             this.OpenTicketlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpenTicketlbl.Location = new System.Drawing.Point(126, 261);
             this.OpenTicketlbl.Name = "OpenTicketlbl";
@@ -227,6 +231,7 @@ namespace DemoApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.DealineTicketslbl);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.Bar2);
@@ -236,6 +241,15 @@ namespace DemoApp
             this.groupBox1.Size = new System.Drawing.Size(414, 463);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // DealineTicketslbl
+            // 
+            this.DealineTicketslbl.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.DealineTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DealineTicketslbl.Location = new System.Drawing.Point(163, 255);
+            this.DealineTicketslbl.Name = "DealineTicketslbl";
+            this.DealineTicketslbl.Size = new System.Drawing.Size(69, 69);
+            this.DealineTicketslbl.TabIndex = 17;
             // 
             // label6
             // 
@@ -285,7 +299,6 @@ namespace DemoApp
             this.Bar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.Bar2.SuperscriptText = "";
             this.Bar2.TabIndex = 9;
-            this.Bar2.Text = "2";
             this.Bar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.Bar2.Value = 50;
             // 
@@ -545,6 +558,7 @@ namespace DemoApp
         private System.Windows.Forms.Button TransferTicketBtn;
         private System.Windows.Forms.Button DeleteTicketBtn;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.Label DealineTicketslbl;
     }
 }
 

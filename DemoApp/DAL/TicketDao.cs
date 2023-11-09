@@ -48,6 +48,14 @@ namespace DAL
 
             collection1.UpdateOne(filter, update);
         }
-
+        public List<Ticket> GetSortedTicketsByPriority()
+        {
+            return collection1.Find(_ => true)
+            .Sort(Builders<Ticket>.Sort.Ascending(t => t.PriorityType))
+            .ToList();
+            //return collection1.Find(_ => true)
+            //    .SortByDescending(t => (int) t.PriorityType)
+            //    .ToList();
+        }
     }
 }

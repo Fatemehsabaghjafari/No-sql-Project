@@ -24,8 +24,10 @@ namespace DemoApp
             databases = new Databases();
             ticketService = new TicketService();
             employeeService = new EmployeeService();
+
+            Bar1.Value = CalculateProgressValue();
+            Bar2.Value = CalculateProgressValue();
             
-            //Bar1.Value = CalculateProgressValue();
         }
       
 
@@ -37,7 +39,8 @@ namespace DemoApp
             {
                 //listBox1.Items.Add(db.name);
             }
-            tickets = ticketService.GetAllTickets();
+            //tickets = ticketService.GetAllTickets();
+            List<Ticket> tickets = ticketService.GetSortedTickets();
             List<Employee> employees = employeeService.GetAllEmployees();
             TicketView(tickets, searchTerm);
             UserView(employees);
@@ -45,15 +48,21 @@ namespace DemoApp
             int ticketNumbers = tickets.Count;
             AllTicketslbl.Text = ticketNumbers.ToString();
             int openTickets = 0;
-
+            int passedDeadlineTickets = 0;
             foreach (Ticket ticket in tickets)
             {
                 if (ticket.TicketStatus == Ticket.Status.Open)
                 {
                     openTickets++;
+                    if (ticket.Deadline < DateTime.Now)
+                    {
+                        passedDeadlineTickets++;
+                    }
                 }
             }
             OpenTicketlbl.Text = openTickets.ToString();
+            OpenTicketlbl.Text = openTickets.ToString();
+            DealineTicketslbl.Text = passedDeadlineTickets.ToString();
 
             //if (loggedInEmployee != null)
             //{
@@ -67,8 +76,10 @@ namespace DemoApp
             //    }
             //}
         }
+
         private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
         {
+            int employeeCount = 1;
 
             UserlistView.Items.Clear();
             UserlistView.Columns.Clear();
@@ -81,12 +92,15 @@ namespace DemoApp
             UserlistView.Columns.Add("Location", 150);
 
 
+            
 
             foreach (Employee employee in employees)
             {
                 if (string.IsNullOrEmpty(filterEmail) || employee.Email.ToLower().Contains(filterEmail.ToLower()))
                 {
-                    ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
+                    ListViewItem listViewItem = new ListViewItem(employeeCount.ToString());
+                    employeeCount++;
+                    //ListViewItem listViewItem = new ListViewItem(employee.Id.ToString());
                     listViewItem.SubItems.Add(employee.Email);
                     listViewItem.SubItems.Add(employee.FirstName);
                     listViewItem.SubItems.Add(employee.LastName);
@@ -140,12 +154,14 @@ namespace DemoApp
         //    }
         //}
 
-
+        
         private List<Ticket> TicketView(List<Ticket> tickets, string searchTerm)
         {
+            int ticketCounter = 1;
+
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
-            TicketslistView.Columns.Add("ID", 200);
+            TicketslistView.Columns.Add("ID", 50);
             TicketslistView.Columns.Add("Subject", 200);
             TicketslistView.Columns.Add("User", 100);
             TicketslistView.Columns.Add("Date", 120);
@@ -162,7 +178,9 @@ namespace DemoApp
                     ticket.IncidentSubject.ToLower().Contains(searchTerm.ToLower()) ||
                     ticket.User.FirstName.ToLower().Contains(searchTerm.ToLower()))
                 {
-                    ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+                    ListViewItem listViewItem = new ListViewItem(ticketCounter.ToString());
+                    ticketCounter++;
+                    //ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
                     listViewItem.SubItems.Add(ticket.IncidentSubject);
                     listViewItem.SubItems.Add(ticket.User.FirstName);
                     listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -267,22 +285,36 @@ namespace DemoApp
         {
             List<Ticket> tickets = ticketService.GetAllTickets();
             int openTickets = 0;
-
+            int overdueTickets = 0;
+            DateTime currentDate = DateTime.Now;
             foreach (Ticket ticket in tickets)
             {
                 if (ticket.TicketStatus == Ticket.Status.Open)
                 {
                     openTickets++;
+                    if (ticket.Deadline < currentDate)
+                    {
+                        overdueTickets++;
+                    }
                 }
             }
-
-            Bar1.Maximum = tickets.Count;
-
-            // Ensure progressValue is within the valid range
-            int progressValue = (int)(((double)openTickets / Bar1.Maximum) * 100);
-            progressValue = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValue));
-
-            return progressValue;
+            int progressValueBar1 = 0;
+            int progressValueBar2 = 0;
+            if (Bar1.Maximum != 0)
+            {
+                progressValueBar1 = (int)((openTickets / (double)Bar1.Maximum) * 100);
+                progressValueBar1 = Math.Max(Bar1.Minimum, Math.Min(Bar1.Maximum, progressValueBar1));
+                Bar1.Value = progressValueBar1;
+            }
+            if (Bar2.Maximum != 0)
+            {
+                progressValueBar2 = (int)((overdueTickets / (double)Bar2.Maximum) * 100);
+                progressValueBar2 = Math.Max(Bar2.Minimum, Math.Min(Bar2.Maximum, progressValueBar2));
+                Bar2.Value = progressValueBar2;
+            }
+            Bar1.Refresh();
+            Bar2.Refresh();
+            return overdueTickets;
         }
 
         private void FindbyEmailtextBox_TextChanged(object sender, EventArgs e)

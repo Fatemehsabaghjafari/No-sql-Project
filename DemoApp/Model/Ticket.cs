@@ -30,9 +30,6 @@ namespace Model
 
         public enum Priority { High, Medium, Low }
 
-
-
-
         public string ConvertTypeToString(Type type)
         {
             return type.ToString();

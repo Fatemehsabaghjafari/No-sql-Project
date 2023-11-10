@@ -63,5 +63,12 @@ namespace DAL
             var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticketid);
             return collection.Find(filter).FirstOrDefault();
         }
+        public List<Ticket> GetSortedTicketsByPriority()
+        {
+            return collection1.Find(_ => true)
+            .Sort(Builders<Ticket>.Sort.Ascending(t => t.PriorityType))
+            .ToList();
+          
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace DemoApp
                 }
                 else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
                 {
-                    tickets = ticketService.GetAllTickets();
+                    tickets = ticketService.GetSortedTickets();
                     TransferTicketBtn.Visible = true;
                     DeleteTicketBtn.Visible = true;
                     updateBtn.Visible = true;
@@ -143,6 +143,9 @@ namespace DemoApp
             TicketslistView.Columns.Add("User", 150);
             TicketslistView.Columns.Add("Date", 150);
             TicketslistView.Columns.Add("Status", 150);
+            TicketslistView.Columns.Add("Type", 150);
+            TicketslistView.Columns.Add("Priority", 150);
+
 
             foreach (Ticket ticket in tickets)
             {
@@ -366,7 +369,6 @@ namespace DemoApp
         private void FilterTickets(Ticket.Status? filterStatus)
         {
             TicketslistView.BeginUpdate(); // Suspend the layout to improve performance
-
             TicketslistView.Items.Clear();
 
             foreach (Ticket ticket in tickets)

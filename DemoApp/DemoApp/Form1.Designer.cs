@@ -44,7 +44,6 @@ namespace DemoApp
             this.Bar1 = new CircularProgressBar.CircularProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DealineTicketslbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Bar2 = new CircularProgressBar.CircularProgressBar();
@@ -65,6 +64,7 @@ namespace DemoApp
             this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.close_button = new System.Windows.Forms.Button();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -172,10 +172,11 @@ namespace DemoApp
             // 
             this.OpenTicketlbl.BackColor = System.Drawing.SystemColors.ControlLight;
             this.OpenTicketlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenTicketlbl.Location = new System.Drawing.Point(126, 261);
+            this.OpenTicketlbl.Location = new System.Drawing.Point(113, 261);
             this.OpenTicketlbl.Name = "OpenTicketlbl";
             this.OpenTicketlbl.Size = new System.Drawing.Size(50, 63);
             this.OpenTicketlbl.TabIndex = 15;
+            this.OpenTicketlbl.Click += new System.EventHandler(this.OpenTicketlbl_Click);
             // 
             // label5
             // 
@@ -231,7 +232,6 @@ namespace DemoApp
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DealineTicketslbl);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.Bar2);
@@ -241,15 +241,6 @@ namespace DemoApp
             this.groupBox1.Size = new System.Drawing.Size(414, 463);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            // 
-            // DealineTicketslbl
-            // 
-            this.DealineTicketslbl.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.DealineTicketslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DealineTicketslbl.Location = new System.Drawing.Point(163, 255);
-            this.DealineTicketslbl.Name = "DealineTicketslbl";
-            this.DealineTicketslbl.Size = new System.Drawing.Size(69, 69);
-            this.DealineTicketslbl.TabIndex = 17;
             // 
             // label6
             // 
@@ -276,8 +267,8 @@ namespace DemoApp
             this.Bar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.Bar2.AnimationSpeed = 500;
             this.Bar2.BackColor = System.Drawing.Color.Transparent;
-            this.Bar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
-            this.Bar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Bar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bar2.ForeColor = System.Drawing.Color.Black;
             this.Bar2.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Bar2.InnerMargin = 2;
             this.Bar2.InnerWidth = -1;
@@ -289,8 +280,8 @@ namespace DemoApp
             this.Bar2.OuterWidth = 51;
             this.Bar2.ProgressColor = System.Drawing.Color.Red;
             this.Bar2.ProgressWidth = 50;
-            this.Bar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.Bar2.Size = new System.Drawing.Size(320, 320);
+            this.Bar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bar2.Size = new System.Drawing.Size(335, 320);
             this.Bar2.StartAngle = 270;
             this.Bar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.Bar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
@@ -325,6 +316,7 @@ namespace DemoApp
             // 
             // IncidentViewPanel
             // 
+            this.IncidentViewPanel.Controls.Add(this.close_button);
             this.IncidentViewPanel.Controls.Add(this.DeleteTicketBtn);
             this.IncidentViewPanel.Controls.Add(this.updateBtn);
             this.IncidentViewPanel.Controls.Add(this.TransferTicketBtn);
@@ -339,32 +331,35 @@ namespace DemoApp
             // 
             // DeleteTicketBtn
             // 
-            this.DeleteTicketBtn.Location = new System.Drawing.Point(404, 545);
+            this.DeleteTicketBtn.BackColor = System.Drawing.Color.Red;
+            this.DeleteTicketBtn.Location = new System.Drawing.Point(348, 545);
             this.DeleteTicketBtn.Name = "DeleteTicketBtn";
             this.DeleteTicketBtn.Size = new System.Drawing.Size(118, 42);
             this.DeleteTicketBtn.TabIndex = 8;
             this.DeleteTicketBtn.Text = "Delete Ticket";
-            this.DeleteTicketBtn.UseVisualStyleBackColor = true;
+            this.DeleteTicketBtn.UseVisualStyleBackColor = false;
             this.DeleteTicketBtn.Click += new System.EventHandler(this.DeleteTicketBtn_Click);
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(246, 545);
+            this.updateBtn.BackColor = System.Drawing.Color.PaleGreen;
+            this.updateBtn.Location = new System.Drawing.Point(203, 545);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(118, 42);
             this.updateBtn.TabIndex = 7;
             this.updateBtn.Text = "Edit Ticket";
-            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.UseVisualStyleBackColor = false;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // TransferTicketBtn
             // 
+            this.TransferTicketBtn.BackColor = System.Drawing.Color.Cyan;
             this.TransferTicketBtn.Location = new System.Drawing.Point(31, 545);
             this.TransferTicketBtn.Name = "TransferTicketBtn";
             this.TransferTicketBtn.Size = new System.Drawing.Size(135, 42);
             this.TransferTicketBtn.TabIndex = 6;
             this.TransferTicketBtn.Text = "TransferTicket";
-            this.TransferTicketBtn.UseVisualStyleBackColor = true;
+            this.TransferTicketBtn.UseVisualStyleBackColor = false;
             this.TransferTicketBtn.Click += new System.EventHandler(this.TransferTicketBtn_Click);
             // 
             // SearchTxtBox
@@ -489,13 +484,24 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // close_button
+            // 
+            this.close_button.BackColor = System.Drawing.Color.GreenYellow;
+            this.close_button.Location = new System.Drawing.Point(497, 545);
+            this.close_button.Name = "close_button";
+            this.close_button.Size = new System.Drawing.Size(100, 42);
+            this.close_button.TabIndex = 9;
+            this.close_button.Text = "Close";
+            this.close_button.UseVisualStyleBackColor = false;
+            this.close_button.Click += new System.EventHandler(this.close_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 1015);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
@@ -558,7 +564,7 @@ namespace DemoApp
         private System.Windows.Forms.Button TransferTicketBtn;
         private System.Windows.Forms.Button DeleteTicketBtn;
         private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.Label DealineTicketslbl;
+        private System.Windows.Forms.Button close_button;
     }
 }
 

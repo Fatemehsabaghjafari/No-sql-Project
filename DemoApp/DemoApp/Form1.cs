@@ -62,7 +62,7 @@ namespace DemoApp
             }
             OpenTicketlbl.Text = openTickets.ToString();
             OpenTicketlbl.Text = openTickets.ToString();
-            DealineTicketslbl.Text = passedDeadlineTickets.ToString();
+            Bar2.Text = passedDeadlineTickets.ToString();
 
             //if (loggedInEmployee != null)
             //{
@@ -162,7 +162,7 @@ namespace DemoApp
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
             TicketslistView.Columns.Add("ID", 50);
-            TicketslistView.Columns.Add("Subject", 200);
+            TicketslistView.Columns.Add("Subject", 100);
             TicketslistView.Columns.Add("User", 100);
             TicketslistView.Columns.Add("Date", 120);
             TicketslistView.Columns.Add("Status", 100);
@@ -416,6 +416,16 @@ namespace DemoApp
             {
                 MessageBox.Show("Please select a ticket to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void OpenTicketlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void close_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

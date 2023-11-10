@@ -7,6 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing;
 using System.Linq;
+using MongoDB.Bson;
 
 namespace DemoApp
 {
@@ -88,6 +89,11 @@ namespace DemoApp
             }
             OpenTicketlbl.Text = openTickets.ToString();
             Bar2.Text = passedDeadlineTickets.ToString();
+
+            openRadioBtn.CheckedChanged += (s, ev) => FilterTickets(Ticket.Status.Open);
+            closeRadioBtn.CheckedChanged += (s, ev) => FilterTickets(Ticket.Status.Close);
+            ResolvedRadioBtn.CheckedChanged += (s, ev) => FilterTickets(Ticket.Status.Resolved);
+            ShowTickets();
 
         }
         private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
@@ -351,5 +357,40 @@ namespace DemoApp
                 MessageBox.Show("Please select a ticket to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void ShowTickets()
+        {
+            TicketslistView.Items.Clear();
+            TicketView(tickets);
+        }
+       
+        private void FilterTickets(Ticket.Status? filterStatus)
+        {
+            TicketslistView.BeginUpdate(); // Suspend the layout to improve performance
+
+            TicketslistView.Items.Clear();
+
+            foreach (Ticket ticket in tickets)
+            {
+                if (filterStatus == null || ticket.TicketStatus == filterStatus)
+                {
+                    string typeAsString = Enum.GetName(typeof(Ticket.IncidentType), ticket.Type);
+                    string priorityAsString = Enum.GetName(typeof(Ticket.Priority), ticket.PriorityType);
+
+                    ListViewItem listViewItem = new ListViewItem(ticket.Id.ToString());
+                    listViewItem.SubItems.Add(ticket.IncidentSubject);
+                    listViewItem.SubItems.Add(ticket.User.FirstName);
+                    listViewItem.SubItems.Add(ticket.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+                    listViewItem.SubItems.Add(ticket.TicketStatus.ToString());
+                    listViewItem.SubItems.Add(typeAsString);
+                    listViewItem.SubItems.Add(priorityAsString);
+
+                    TicketslistView.Items.Add(listViewItem);
+                }
+            }
+
+            TicketslistView.EndUpdate(); // Resume layout and redraw
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Model;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,12 @@ namespace DAL
                 ticket.IncidentSubject.ToLower().Contains(searchTerm.ToLower()) ||
                 ticket.User.FirstName.ToLower().Contains(searchTerm.ToLower())
             ).ToList();
+        }
+        public Ticket GetTicketById(ObjectId ticketid)
+        {
+            var collection = database.GetCollection<Ticket>("Garden-group");
+            var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticketid);
+            return collection.Find(filter).FirstOrDefault();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Logic
 {
@@ -40,6 +41,10 @@ namespace Logic
         public List<Ticket> GetTicketsBySearchTerm(string searchTerm)
         {
             return ticketDao.GetTicketsBySearchTerm(searchTerm);
+        }
+        public Ticket GetTicketById(ObjectId ticketid)
+        {
+            return ticketDao.GetTicketById(ticketid);
         }
 
     }

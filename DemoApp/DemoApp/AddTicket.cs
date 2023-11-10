@@ -43,46 +43,13 @@ namespace DemoApp
 
 
         }
-        //public Ticket NewTicket()
-        //{
-        //    Ticket ticket = new Ticket
-        //    {
-        //        Date = IncidentDateTimePicker.Value,
-        //        IncidentSubject = IncidentSubjectTxtBox.Text,
-        //        User = (Employee)UserIncidentComboBox.SelectedItem,
-        //        Type = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem,
-        //        PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
-        //        Deadline = IncidentDeadlinePicker.Value,
-        //        Description = IncidentDescriptionTxtBox.Text,
-        //        TicketStatus = Ticket.Status.Open
-        //    };
-
-        //    if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
-        //    {
-        //        // This is a regular employee, can only add ticket for themselves
-        //        if (ticket.User != loggedInEmployee)
-        //        {
-        //            throw new UnauthorizedTicketAccessException("Regular employees can only add tickets for themselves.");
-        //        }
-
-        //        ticket.User = loggedInEmployee;
-        //    }
-        //    else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
-        //    {
-        //        // This is a service desk employee, can add ticket for all employees
-        //        ticket.User = (Employee)UserIncidentComboBox.SelectedItem;
-        //    }
-
-        //    ticketService.AddTicket(ticket);
-        //    return ticket;
-        //}
         public Ticket NewTicket()
         {
-            // Create a new ticket with the provided information
             Ticket ticket = new Ticket
             {
                 Date = IncidentDateTimePicker.Value,
                 IncidentSubject = IncidentSubjectTxtBox.Text,
+                User = (Employee)UserIncidentComboBox.SelectedItem,
                 Type = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem,
                 PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
                 Deadline = IncidentDeadlinePicker.Value,
@@ -90,27 +57,23 @@ namespace DemoApp
                 TicketStatus = Ticket.Status.Open
             };
 
-            // Set the user based on the employee type
-            switch (loggedInEmployee.Type)
+            if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
             {
-                case Employee.EmployeeType.Employee:
-                    // Regular employees can only add tickets for themselves
-                    ticket.User = loggedInEmployee;
-                    break;
+                // This is a regular employee, can only add ticket for themselves
+                if (ticket.User != loggedInEmployee)
+                {
+                    throw new UnauthorizedTicketAccessException("Regular employees can only add tickets for themselves.");
+                }
 
-                case Employee.EmployeeType.ServiceDesk:
-                    // Service desk employees can add tickets for any employee
-                    ticket.User = (Employee)UserIncidentComboBox.SelectedItem;
-                    break;
-
-                default:
-                    throw new UnauthorizedTicketAccessException("Unauthorized employee type.");
+                ticket.User = loggedInEmployee;
+            }
+            else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
+            {
+                // This is a service desk employee, can add ticket for all employees
+                ticket.User = (Employee)UserIncidentComboBox.SelectedItem;
             }
 
-            // Add the ticket to the service
             ticketService.AddTicket(ticket);
-
-            // Return the created ticket
             return ticket;
         }
 

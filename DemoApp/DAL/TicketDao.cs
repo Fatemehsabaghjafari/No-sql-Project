@@ -26,11 +26,6 @@ namespace DAL
             collection1.InsertOne(ticket);
         }
 
-        //public List<Ticket> GetTicketsByUser(Employee user)
-        //{
-        //    return collection1.Find(ticket => ticket.User.Id == user.Id).ToList();
-        //}
-
         public void DeleteTicket(Ticket ticket)
         {
             var filter = Builders<Ticket>.Filter.Eq(t => t.Id, ticket.Id);

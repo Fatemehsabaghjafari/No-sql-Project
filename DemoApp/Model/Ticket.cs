@@ -33,34 +33,7 @@ namespace Model
 
 
 
-        public string ConvertTypeToString(Type type)
-        {
-            return type.ToString();
-        }
-
-        public Type ConvertStringToType(string typeString)
-        {
-            return (Type)Enum.Parse(typeof(Type), typeString);
-        }
-        public string ConvertStatusToString(Status status) 
-        { 
-            return status.ToString(); 
-        }
-
-        public Status ConvertStringToStatus(string statusString)
-        {
-            return (Status)Enum.Parse(typeof(Status), statusString);
-        }
-
-        public string ConvertPriorityToString(Priority priority)
-        {
-            return priority.ToString();
-        }
-
-        public Priority ConvertStringToPriority(string priorityString)
-        {
-            return (Priority)Enum.Parse(typeof(Priority), priorityString);
-        }
+       
 
     }
 }

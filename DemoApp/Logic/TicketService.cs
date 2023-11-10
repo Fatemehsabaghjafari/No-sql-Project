@@ -37,6 +37,10 @@ namespace Logic
         {
             ticketDao.DeleteTicket(ticket);
         }
+        public List<Ticket> GetTicketsBySearchTerm(string searchTerm)
+        {
+            return ticketDao.GetTicketsBySearchTerm(searchTerm);
+        }
 
     }
 }

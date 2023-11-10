@@ -64,6 +64,8 @@ namespace DemoApp
             this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -312,6 +314,8 @@ namespace DemoApp
             // 
             // IncidentViewPanel
             // 
+            this.IncidentViewPanel.Controls.Add(this.radioButton1);
+            this.IncidentViewPanel.Controls.Add(this.radioButton2);
             this.IncidentViewPanel.Controls.Add(this.DeleteTicketBtn);
             this.IncidentViewPanel.Controls.Add(this.updateBtn);
             this.IncidentViewPanel.Controls.Add(this.TransferTicketBtn);
@@ -476,13 +480,35 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(690, 536);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(103, 20);
+            this.radioButton1.TabIndex = 9;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(581, 545);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 20);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 1015);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.IncidentViewPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.UserViewPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.UserManagementBtn);
@@ -545,6 +571,8 @@ namespace DemoApp
         private System.Windows.Forms.Button TransferTicketBtn;
         private System.Windows.Forms.Button DeleteTicketBtn;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 

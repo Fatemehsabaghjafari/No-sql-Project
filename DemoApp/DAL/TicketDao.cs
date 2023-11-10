@@ -26,10 +26,10 @@ namespace DAL
             collection1.InsertOne(ticket);
         }
 
-        public List<Ticket> GetTicketsByUser(Employee user)
-        {
-            return collection1.Find(ticket => ticket.User.Id == user.Id).ToList();
-        }
+        //public List<Ticket> GetTicketsByUser(Employee user)
+        //{
+        //    return collection1.Find(ticket => ticket.User.Id == user.Id).ToList();
+        //}
 
         public void DeleteTicket(Ticket ticket)
         {
@@ -49,5 +49,17 @@ namespace DAL
             collection1.UpdateOne(filter, update);
         }
 
+        public List<Ticket> GetTicketsByUser(Employee user)
+        {
+            return collection1.Find(ticket => ticket.User.Id == user.Id).ToList();
+        }
+
+        public List<Ticket> GetTicketsBySearchTerm(string searchTerm)
+        {
+            return collection1.Find(ticket =>
+                ticket.IncidentSubject.ToLower().Contains(searchTerm.ToLower()) ||
+                ticket.User.FirstName.ToLower().Contains(searchTerm.ToLower())
+            ).ToList();
+        }
     }
 }

@@ -18,13 +18,13 @@ namespace DemoApp
         private Employee loggedInEmployee;
         private List<Ticket> tickets;
         private string searchTerm;
-        public Form1()
+        public Form1(Employee employee)
         {
             InitializeComponent();
             databases = new Databases();
             ticketService = new TicketService();
-            employeeService = new EmployeeService();
-            
+            employeeService = new EmployeeService();  
+            this.loggedInEmployee = employee;
             //Bar1.Value = CalculateProgressValue();
         }
       
@@ -37,7 +37,33 @@ namespace DemoApp
             {
                 //listBox1.Items.Add(db.name);
             }
-            tickets = ticketService.GetAllTickets();
+            if (loggedInEmployee != null)
+            {
+                if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
+                {
+                    tickets = ticketService.GetTicketsByUser(loggedInEmployee);
+                    TransferTicketBtn.Visible = false;
+                    DeleteTicketBtn.Visible = false;
+                    updateBtn.Visible = false;
+                }
+                else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
+                {
+                    tickets = ticketService.GetAllTickets();
+                    TransferTicketBtn.Visible = true;
+                    DeleteTicketBtn.Visible = true;
+                    updateBtn.Visible = true;
+
+                }
+                else
+                {
+                    // Handle other employee types if necessary
+                    tickets = new List<Ticket>();
+                }
+            }
+            else
+            {
+                tickets = new List<Ticket>();
+            }
             List<Employee> employees = employeeService.GetAllEmployees();
             TicketView(tickets, searchTerm);
             UserView(employees);
@@ -54,18 +80,6 @@ namespace DemoApp
                 }
             }
             OpenTicketlbl.Text = openTickets.ToString();
-
-            //if (loggedInEmployee != null)
-            //{
-            //    if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
-            //    {
-            //        TransferTicketBtn.Visible = true; // Show the button for service desk employees
-            //    }
-            //    else
-            //    {
-            //        TransferTicketBtn.Visible = false; // Hide the button for other employee types
-            //    }
-            //}
         }
         private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
         {
@@ -199,24 +213,22 @@ namespace DemoApp
 
         private void AddIncidentBtn_Click(object sender, EventArgs e)
         {
-            AddTicket addTicket = new AddTicket();
-            addTicket.ShowDialog();
-            //try
-            //{
-            //    if (loggedInEmployee != null)
-            //    {
-            //        AddTicket addTicket = new AddTicket(loggedInEmployee);
-            //        addTicket.ShowDialog();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No logged-in employee found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-            //catch (UnauthorizedTicketAccessException ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            try
+            {
+                if (loggedInEmployee != null)
+                {
+                    AddTicket addTicket = new AddTicket(loggedInEmployee);
+                    addTicket.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No logged-in employee found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (UnauthorizedTicketAccessException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TicketViewBtn_Click(object sender, EventArgs e)
@@ -308,6 +320,12 @@ namespace DemoApp
             }
 
             TicketView(filteredTickets, searchTerm);
+
+            //searchTerm = SearchTxtBox.Text.ToLower();
+
+            //List<Ticket> filteredTickets = ticketService.GetTicketsBySearchTerm(searchTerm);
+
+            //TicketView(filteredTickets, searchTerm);
         }
 
         private void TransferTicketBtn_Click(object sender, EventArgs e)

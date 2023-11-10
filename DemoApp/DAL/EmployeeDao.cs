@@ -29,6 +29,32 @@ namespace DAL
         {
             return collection2.Find(employee => employee.Type == Employee.EmployeeType.Employee).ToList();
         }
+        public void InsertUser(Employee user)
+        {
+            collection2.InsertOne(user);
+        }
+
+
+
+        public Employee AuthenticateUser(string username, string password)
+        {
+            // Retrieve user from DAL by username
+            var filter = Builders<Employee>.Filter.Eq("FirstName", username);
+
+            Employee user = collection2.Find(filter).FirstOrDefault();
+
+            if (user != null)
+            {
+                // Perform password validation using BCrypt
+                if (password == user.Password)
+                {
+                    return user; // Return authenticated user
+                }
+            }
+
+            return null; // Authentication failed
+        }
+
 
     }
 }

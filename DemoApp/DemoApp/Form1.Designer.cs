@@ -29,6 +29,7 @@ namespace DemoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +51,9 @@ namespace DemoApp
             this.TicketViewBtn = new System.Windows.Forms.Button();
             this.Incidentlbl = new System.Windows.Forms.Label();
             this.IncidentViewPanel = new System.Windows.Forms.Panel();
+            this.ResolvedRadioBtn = new System.Windows.Forms.RadioButton();
+            this.openRadioBtn = new System.Windows.Forms.RadioButton();
+            this.closeRadioBtn = new System.Windows.Forms.RadioButton();
             this.DeleteTicketBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.TransferTicketBtn = new System.Windows.Forms.Button();
@@ -64,9 +68,7 @@ namespace DemoApp
             this.FindbyEmailtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.openRadioBtn = new System.Windows.Forms.RadioButton();
-            this.closeRadioBtn = new System.Windows.Forms.RadioButton();
-            this.ResolvedRadioBtn = new System.Windows.Forms.RadioButton();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.DashboardPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -330,6 +332,39 @@ namespace DemoApp
             this.IncidentViewPanel.Size = new System.Drawing.Size(1045, 611);
             this.IncidentViewPanel.TabIndex = 7;
             // 
+            // ResolvedRadioBtn
+            // 
+            this.ResolvedRadioBtn.AutoSize = true;
+            this.ResolvedRadioBtn.Location = new System.Drawing.Point(823, 551);
+            this.ResolvedRadioBtn.Name = "ResolvedRadioBtn";
+            this.ResolvedRadioBtn.Size = new System.Drawing.Size(134, 20);
+            this.ResolvedRadioBtn.TabIndex = 10;
+            this.ResolvedRadioBtn.TabStop = true;
+            this.ResolvedRadioBtn.Text = "Resolved Tickets";
+            this.ResolvedRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // openRadioBtn
+            // 
+            this.openRadioBtn.AutoSize = true;
+            this.openRadioBtn.Location = new System.Drawing.Point(564, 551);
+            this.openRadioBtn.Name = "openRadioBtn";
+            this.openRadioBtn.Size = new System.Drawing.Size(108, 20);
+            this.openRadioBtn.TabIndex = 9;
+            this.openRadioBtn.TabStop = true;
+            this.openRadioBtn.Text = "Open Tickets";
+            this.openRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // closeRadioBtn
+            // 
+            this.closeRadioBtn.AutoSize = true;
+            this.closeRadioBtn.Location = new System.Drawing.Point(699, 551);
+            this.closeRadioBtn.Name = "closeRadioBtn";
+            this.closeRadioBtn.Size = new System.Drawing.Size(110, 20);
+            this.closeRadioBtn.TabIndex = 9;
+            this.closeRadioBtn.TabStop = true;
+            this.closeRadioBtn.Text = "Close Tickets";
+            this.closeRadioBtn.UseVisualStyleBackColor = true;
+            // 
             // DeleteTicketBtn
             // 
             this.DeleteTicketBtn.Location = new System.Drawing.Point(296, 545);
@@ -482,39 +517,6 @@ namespace DemoApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // openRadioBtn
-            // 
-            this.openRadioBtn.AutoSize = true;
-            this.openRadioBtn.Location = new System.Drawing.Point(564, 551);
-            this.openRadioBtn.Name = "openRadioBtn";
-            this.openRadioBtn.Size = new System.Drawing.Size(108, 20);
-            this.openRadioBtn.TabIndex = 9;
-            this.openRadioBtn.TabStop = true;
-            this.openRadioBtn.Text = "Open Tickets";
-            this.openRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // closeRadioBtn
-            // 
-            this.closeRadioBtn.AutoSize = true;
-            this.closeRadioBtn.Location = new System.Drawing.Point(699, 551);
-            this.closeRadioBtn.Name = "closeRadioBtn";
-            this.closeRadioBtn.Size = new System.Drawing.Size(110, 20);
-            this.closeRadioBtn.TabIndex = 9;
-            this.closeRadioBtn.TabStop = true;
-            this.closeRadioBtn.Text = "Close Tickets";
-            this.closeRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // ResolvedRadioBtn
-            // 
-            this.ResolvedRadioBtn.AutoSize = true;
-            this.ResolvedRadioBtn.Location = new System.Drawing.Point(823, 551);
-            this.ResolvedRadioBtn.Name = "ResolvedRadioBtn";
-            this.ResolvedRadioBtn.Size = new System.Drawing.Size(134, 20);
-            this.ResolvedRadioBtn.TabIndex = 10;
-            this.ResolvedRadioBtn.TabStop = true;
-            this.ResolvedRadioBtn.Text = "Resolved Tickets";
-            this.ResolvedRadioBtn.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -587,6 +589,7 @@ namespace DemoApp
         private System.Windows.Forms.RadioButton ResolvedRadioBtn;
         private System.Windows.Forms.RadioButton openRadioBtn;
         private System.Windows.Forms.RadioButton closeRadioBtn;
+        private System.Windows.Forms.Timer updateTimer;
     }
 }
 

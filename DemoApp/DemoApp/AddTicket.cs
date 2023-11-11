@@ -81,7 +81,8 @@ namespace DemoApp
         {
             NewTicket();
             MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }   
+
+        }
         private void CancelBtn_Click(object sender, EventArgs e)
         {
            this.Close();

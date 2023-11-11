@@ -19,6 +19,8 @@ namespace DemoApp
         private Employee loggedInEmployee;
         private List<Ticket> tickets;
         private string searchTerm;
+      
+
         public Form1(Employee employee)
         {
             InitializeComponent();
@@ -29,8 +31,24 @@ namespace DemoApp
 
             Bar1.Value = CalculateProgressValue();
             Bar2.Value = CalculateProgressValue();
+
+            updateTimer = new Timer();
+            updateTimer.Interval = 5000; // Set the interval in milliseconds (e.g., 5000 for 5 seconds)
+            updateTimer.Tick += UpdateTimer_Tick; // Set the event handler for the Tick event
+            updateTimer.Start(); // Start the timer
+
+            this.FormClosing += Form1_FormClosing;
+
         }
-      
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            RefreshListView(); // Call your refresh method here or any other method you want to execute periodically
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            updateTimer.Stop();
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -96,6 +114,25 @@ namespace DemoApp
             ShowTickets();
 
         }
+        public void RefreshListView()
+        {
+            // Clear the items in the ListView
+            TicketslistView.Items.Clear();
+
+            // Repopulate the ListView with updated data
+            if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
+            {
+                // This is a regular employee, get only their own tickets
+                tickets = ticketService.GetTicketsByUser(loggedInEmployee);
+            }
+            else
+            {
+                tickets = ticketService.GetSortedTickets();
+            }
+          
+            TicketView(tickets);
+        }
+
         private List<Employee> UserView(List<Employee> employees, string filterEmail = "")
         {
 
@@ -130,8 +167,23 @@ namespace DemoApp
         }
         private void AddUserBtn_Click(object sender, EventArgs e)
         {
-            AddEmployee addEmployee = new AddEmployee();
-            addEmployee.ShowDialog();
+            try
+            {
+                if (loggedInEmployee != null)
+                {
+                    AddTicket addTicketForm = new AddTicket(loggedInEmployee);
+                    addTicketForm.Owner = this; // Set the owner form to Form1
+                    addTicketForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No logged-in employee found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (UnauthorizedTicketAccessException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TicketView(List<Ticket> tickets)
@@ -329,15 +381,7 @@ namespace DemoApp
                 MessageBox.Show("Please select a ticket to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void RefreshListView()
-        {
-            // Clear the items in the ListView
-            TicketslistView.Items.Clear();
-
-            // Repopulate the ListView with updated data
-            List<Ticket> updatedTickets = ticketService.GetAllTickets();
-            TicketView(updatedTickets);
-        }
+     
 
         private void updateBtn_Click(object sender, EventArgs e)
         {

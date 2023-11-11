@@ -192,11 +192,11 @@ namespace DemoApp
             TicketslistView.Columns.Clear();
             TicketslistView.Columns.Add("ID", 150);
             TicketslistView.Columns.Add("Subject", 150);
-            TicketslistView.Columns.Add("User", 150);
+            TicketslistView.Columns.Add("User", 100);
             TicketslistView.Columns.Add("Date", 150);
-            TicketslistView.Columns.Add("Status", 150);
-            TicketslistView.Columns.Add("Type", 150);
-            TicketslistView.Columns.Add("Priority", 150);
+            TicketslistView.Columns.Add("Status", 70);
+            TicketslistView.Columns.Add("Type", 70);
+            TicketslistView.Columns.Add("Priority", 70);
 
 
             foreach (Ticket ticket in tickets)

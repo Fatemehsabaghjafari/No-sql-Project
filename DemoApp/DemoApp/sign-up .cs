@@ -16,11 +16,13 @@ namespace DemoApp
     public partial class sign_up : Form
     {
         private readonly EmployeeService employeeService;
+
         public sign_up()
         {
             InitializeComponent();
             employeeService = new EmployeeService();
         }
+
         private void SignUp_Load(object sender, EventArgs e)
         {
             Array employeeType = Enum.GetValues(typeof(Employee.EmployeeType));
@@ -30,9 +32,9 @@ namespace DemoApp
 
         private void loginFromSignupBtn_Click(object sender, EventArgs e)
         {
-            Login logInForm = new Login();
+            Login loginForm = new Login();
             this.Hide();
-            logInForm.ShowDialog();
+            loginForm.ShowDialog();
             this.Close();
         }
 
@@ -45,8 +47,31 @@ namespace DemoApp
             EmployeeType type = (Employee.EmployeeType)comboBoxRole.SelectedValue;
             string userName = usernameTextBox.Text;
 
-            employeeService.AddUserAccount(firstName, lastName, type, userName, email, password);
-            MessageBox.Show("User added successfully!");
+            // Validate input fields
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
+                string.IsNullOrEmpty(userName))
+            {
+                MessageBox.Show("Please fill in all the required fields.");
+                return;
+            }
+
+            try
+            {
+                employeeService.AddUserAccount(firstName, lastName, type, userName, email, password);
+                MessageBox.Show("User added successfully!");
+
+                // Additional logic if needed, e.g., auto-login
+
+                Login loginForm = new Login();
+                this.Hide();
+                loginForm.ShowDialog();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding user: {ex.Message}");
+            }
         }
     }
 }

@@ -101,6 +101,11 @@ namespace DemoApp
             ticketService.AddTicket(ticket);
             return ticket;
         }
+        public void ClearTextbox()
+        {
+            IncidentSubjectTxtBox.Clear();
+            IncidentDescriptionTxtBox.Clear();
+        }
 
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
@@ -109,6 +114,7 @@ namespace DemoApp
             {
                 MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            ClearTextbox();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

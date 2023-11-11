@@ -33,7 +33,7 @@ namespace DemoApp
             Bar2.Value = CalculateProgressValue();
 
             updateTimer = new Timer();
-            updateTimer.Interval = 5000; // Set the interval in milliseconds (e.g., 5000 for 5 seconds)
+            updateTimer.Interval = 10000; // Set the interval in milliseconds (e.g., 5000 for 5 seconds)
             updateTimer.Tick += UpdateTimer_Tick; // Set the event handler for the Tick event
             updateTimer.Start(); // Start the timer
 
@@ -333,7 +333,6 @@ namespace DemoApp
             searchTerm = SearchTxtBox.Text.ToLower();
 
             List<Ticket> filteredTickets = ticketService.GetTicketsBySearchTerm(searchTerm);
-
             TicketView(filteredTickets);
         }
 
@@ -350,7 +349,7 @@ namespace DemoApp
                 {
                     selectedTicket.User = transferDialog.SelectedEmployee;
                     ticketService.UpdateTicket(selectedTicket);
-                    TicketView(tickets);
+                    //TicketView(tickets);
                 }
             }
             else
@@ -374,7 +373,7 @@ namespace DemoApp
 
                 // Call a method to delete the ticket from your data storage (e.g., database or file)
                 ticketService.DeleteTicket(selectedTicket);
-                RefreshListView();
+               // RefreshListView();
             }
             else
             {
@@ -396,6 +395,7 @@ namespace DemoApp
                 if (result == DialogResult.OK)
                 {
                     // Ticket was successfully updated, refresh the view
+                    tickets = ticketService.GetAllTickets(); // Assuming GetAllTickets() retrieves the updated list from your service
                     TicketView(tickets);
                 }
             }
@@ -436,7 +436,5 @@ namespace DemoApp
 
             TicketslistView.EndUpdate(); // Resume layout and redraw
         }
-
-
     }
 }

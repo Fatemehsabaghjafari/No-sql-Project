@@ -26,16 +26,17 @@ namespace DemoApp
             ticketService = new TicketService();
             subjectTextBox.Text = ticket.IncidentSubject;
             userTextBox.Text = ticket.User.FirstName;
-            dateTextBox.Text = ticket.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            statusTextBox.Text = ticket.TicketStatus.ToString();
+            EditDeadlinePicker.Value = ticket.Date; // Use DateTimePicker for date
+            statusComboBox.DataSource = Enum.GetValues(typeof(Ticket.Status)); // Use ComboBox for status
+            statusComboBox.SelectedItem = ticket.TicketStatus;
         }
 
         private void SaveChangesBtn_Click_1(object sender, EventArgs e)
         {
             ticket.IncidentSubject = subjectTextBox.Text;
             ticket.User.FirstName = userTextBox.Text;
-            ticket.Date = DateTime.ParseExact(dateTextBox.Text, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-            ticket.TicketStatus = (Ticket.Status)Enum.Parse(typeof(Ticket.Status), statusTextBox.Text);
+            ticket.Date = EditDeadlinePicker.Value; // Retrieve value from DateTimePicker
+            ticket.TicketStatus = (Ticket.Status)statusComboBox.SelectedItem; // Retrieve value from ComboBox
 
             // Call the UpdateTicket method in your DAO
             ticketService.UpdateTicket(ticket);

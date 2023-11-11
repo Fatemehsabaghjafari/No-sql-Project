@@ -28,59 +28,68 @@ namespace DemoApp
 
         private void AddTicket_Load(object sender, EventArgs e)
         {
+            LoadUserComboBox();
+            LoadIncidentTypeComboBox();
+            LoadIncidentPriorityComboBox();
+        }
+        private void LoadUserComboBox()
+        {
             List<Employee> employeeList = employeeService.GetAllEmployees();
             UserIncidentComboBox.DataSource = null;
             UserIncidentComboBox.DataSource = employeeList;
-            UserIncidentComboBox.DisplayMember = "FirstName";
+            UserIncidentComboBox.DisplayMember = "FullName";
+        }
 
+        private void LoadIncidentTypeComboBox()
+        {
             Array incidentTypes = Enum.GetValues(typeof(Ticket.IncidentType));
             IncidentTypeComboBox.DataSource = incidentTypes;
             IncidentTypeComboBox.DisplayMember = "ToString";
+        }
 
+        private void LoadIncidentPriorityComboBox()
+        {
             Array priorities = Enum.GetValues(typeof(Ticket.Priority));
             IncidentPriorityComboBox.DataSource = priorities;
             IncidentPriorityComboBox.DisplayMember = "ToString";
-
-
         }
-        public Ticket NewTicket()
+        public Ticket CreateNewTicket()
         {
+            Employee selectedUser = (Employee)UserIncidentComboBox.SelectedItem;
+            Ticket.IncidentType selectedIncidentType = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem;
+            Ticket.Priority selectedPriority = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem;
+
+            if (loggedInEmployee.Type == Employee.EmployeeType.Employee && selectedUser != loggedInEmployee)
+            {
+                // Regular employees can only add tickets for themselves
+                MessageBox.Show("Regular employees can only add tickets for themselves.", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
             Ticket ticket = new Ticket
             {
                 Date = IncidentDateTimePicker.Value,
                 IncidentSubject = IncidentSubjectTxtBox.Text,
-                User = (Employee)UserIncidentComboBox.SelectedItem,
-                Type = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem,
-                PriorityType = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem,
+                User = selectedUser,
+                Type = selectedIncidentType,
+                PriorityType = selectedPriority,
                 Deadline = IncidentDeadlinePicker.Value,
                 Description = IncidentDescriptionTxtBox.Text,
                 TicketStatus = Ticket.Status.Open
             };
 
-            if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
-            {
-                // This is a regular employee, can only add ticket for themselves
-                if (ticket.User != loggedInEmployee)
-                {
-                    throw new UnauthorizedTicketAccessException("Regular employees can only add tickets for themselves.");
-                }
-
-                ticket.User = loggedInEmployee;
-            }
-            else if (loggedInEmployee.Type == Employee.EmployeeType.ServiceDesk)
-            {
-                // This is a service desk employee, can add ticket for all employees
-                ticket.User = (Employee)UserIncidentComboBox.SelectedItem;
-            }
-
             ticketService.AddTicket(ticket);
             return ticket;
         }
 
+
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
-            NewTicket();
-            MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Ticket newTicket = CreateNewTicket();
+            if (newTicket != null)
+            {
+                MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
         private void CancelBtn_Click(object sender, EventArgs e)

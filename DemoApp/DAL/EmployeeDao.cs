@@ -34,8 +34,6 @@ namespace DAL
             collection2.InsertOne(user);
         }
 
-
-
         public Employee AuthenticateUser(string username, string password)
         {
             // Retrieve user from DAL by username
@@ -54,7 +52,5 @@ namespace DAL
 
             return null; // Authentication failed
         }
-
-
     }
 }

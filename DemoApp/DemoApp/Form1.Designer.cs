@@ -80,7 +80,7 @@ namespace DemoApp
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(751, 9);
+            this.label1.Location = new System.Drawing.Point(815, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 51);
             this.label1.TabIndex = 0;
@@ -89,7 +89,7 @@ namespace DemoApp
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(649, 60);
+            this.label2.Location = new System.Drawing.Point(690, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(369, 39);
             this.label2.TabIndex = 1;
@@ -97,6 +97,7 @@ namespace DemoApp
             // 
             // DashboarBtn
             // 
+            this.DashboarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboarBtn.Location = new System.Drawing.Point(9, 102);
             this.DashboarBtn.Name = "DashboarBtn";
             this.DashboarBtn.Size = new System.Drawing.Size(348, 40);
@@ -107,6 +108,7 @@ namespace DemoApp
             // 
             // IncidentManagementBtn
             // 
+            this.IncidentManagementBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IncidentManagementBtn.Location = new System.Drawing.Point(357, 102);
             this.IncidentManagementBtn.Name = "IncidentManagementBtn";
             this.IncidentManagementBtn.Size = new System.Drawing.Size(336, 40);
@@ -117,6 +119,7 @@ namespace DemoApp
             // 
             // UserManagementBtn
             // 
+            this.UserManagementBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserManagementBtn.Location = new System.Drawing.Point(692, 102);
             this.UserManagementBtn.Name = "UserManagementBtn";
             this.UserManagementBtn.Size = new System.Drawing.Size(346, 40);
@@ -367,39 +370,45 @@ namespace DemoApp
             // 
             // DeleteTicketBtn
             // 
+            this.DeleteTicketBtn.BackColor = System.Drawing.Color.Red;
+            this.DeleteTicketBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteTicketBtn.Location = new System.Drawing.Point(296, 545);
             this.DeleteTicketBtn.Name = "DeleteTicketBtn";
             this.DeleteTicketBtn.Size = new System.Drawing.Size(118, 42);
             this.DeleteTicketBtn.TabIndex = 8;
             this.DeleteTicketBtn.Text = "Delete Ticket";
-            this.DeleteTicketBtn.UseVisualStyleBackColor = true;
+            this.DeleteTicketBtn.UseVisualStyleBackColor = false;
             this.DeleteTicketBtn.Click += new System.EventHandler(this.DeleteTicketBtn_Click);
             // 
             // updateBtn
             // 
+            this.updateBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.updateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.Location = new System.Drawing.Point(172, 545);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(118, 42);
             this.updateBtn.TabIndex = 7;
             this.updateBtn.Text = "Edit Ticket";
-            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.UseVisualStyleBackColor = false;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // TransferTicketBtn
             // 
+            this.TransferTicketBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TransferTicketBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransferTicketBtn.Location = new System.Drawing.Point(31, 545);
             this.TransferTicketBtn.Name = "TransferTicketBtn";
             this.TransferTicketBtn.Size = new System.Drawing.Size(135, 42);
             this.TransferTicketBtn.TabIndex = 6;
             this.TransferTicketBtn.Text = "TransferTicket";
-            this.TransferTicketBtn.UseVisualStyleBackColor = true;
+            this.TransferTicketBtn.UseVisualStyleBackColor = false;
             this.TransferTicketBtn.Click += new System.EventHandler(this.TransferTicketBtn_Click);
             // 
             // SearchTxtBox
             // 
-            this.SearchTxtBox.Location = new System.Drawing.Point(39, 54);
+            this.SearchTxtBox.Location = new System.Drawing.Point(31, 44);
             this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(184, 22);
+            this.SearchTxtBox.Size = new System.Drawing.Size(193, 22);
             this.SearchTxtBox.TabIndex = 5;
             this.SearchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 
@@ -416,7 +425,8 @@ namespace DemoApp
             // AddIncidentBtn
             // 
             this.AddIncidentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.AddIncidentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddIncidentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddIncidentBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddIncidentBtn.Location = new System.Drawing.Point(853, 23);
             this.AddIncidentBtn.Name = "AddIncidentBtn";
             this.AddIncidentBtn.Size = new System.Drawing.Size(176, 41);

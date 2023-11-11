@@ -21,7 +21,7 @@ namespace DemoApp
         public AddTicket(Employee employee)
         {
             InitializeComponent();
-            ticketService= new TicketService();
+            ticketService = new TicketService();
             employeeService = new EmployeeService();
             this.loggedInEmployee = employee;
         }
@@ -32,9 +32,24 @@ namespace DemoApp
             LoadIncidentTypeComboBox();
             LoadIncidentPriorityComboBox();
         }
+
         private void LoadUserComboBox()
         {
-            List<Employee> employeeList = employeeService.GetAllEmployees();
+            List<Employee> employeeList;
+
+            // Check if the logged-in employee is an employee
+            if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
+            {
+                // If the logged-in user is an employee, only show their name in the combo box
+                employeeList = new List<Employee> { loggedInEmployee };
+                UserIncidentComboBox.Enabled = false; // Disable the combo box
+            }
+            else
+            {
+                // If the logged-in user is an admin, show all employees in the combo box
+                employeeList = employeeService.GetAllEmployees();
+            }
+
             UserIncidentComboBox.DataSource = null;
             UserIncidentComboBox.DataSource = employeeList;
             UserIncidentComboBox.DisplayMember = "FullName";
@@ -53,17 +68,22 @@ namespace DemoApp
             IncidentPriorityComboBox.DataSource = priorities;
             IncidentPriorityComboBox.DisplayMember = "ToString";
         }
+
         public Ticket CreateNewTicket()
         {
             Employee selectedUser = (Employee)UserIncidentComboBox.SelectedItem;
             Ticket.IncidentType selectedIncidentType = (Ticket.IncidentType)IncidentTypeComboBox.SelectedItem;
             Ticket.Priority selectedPriority = (Ticket.Priority)IncidentPriorityComboBox.SelectedItem;
 
-            if (loggedInEmployee.Type == Employee.EmployeeType.Employee && selectedUser != loggedInEmployee)
+            // Check if the logged-in employee is an employee
+            if (loggedInEmployee.Type == Employee.EmployeeType.Employee)
             {
                 // Regular employees can only add tickets for themselves
-                MessageBox.Show("Regular employees can only add tickets for themselves.", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                if (selectedUser != loggedInEmployee)
+                {
+                    MessageBox.Show("Regular employees can only add tickets for themselves.", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
             }
 
             Ticket ticket = new Ticket
@@ -82,7 +102,6 @@ namespace DemoApp
             return ticket;
         }
 
-
         private void SubmitTicketBtn_Click(object sender, EventArgs e)
         {
             Ticket newTicket = CreateNewTicket();
@@ -90,11 +109,11 @@ namespace DemoApp
             {
                 MessageBox.Show("Ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
+
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-           this.Close();
+            this.Close();
         }
     }
 }

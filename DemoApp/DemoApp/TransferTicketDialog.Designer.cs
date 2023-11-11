@@ -43,12 +43,14 @@
             // 
             // buttonTransfer
             // 
+            this.buttonTransfer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTransfer.Location = new System.Drawing.Point(635, 384);
             this.buttonTransfer.Name = "buttonTransfer";
             this.buttonTransfer.Size = new System.Drawing.Size(117, 33);
             this.buttonTransfer.TabIndex = 1;
             this.buttonTransfer.Text = "Transfer";
-            this.buttonTransfer.UseVisualStyleBackColor = true;
+            this.buttonTransfer.UseVisualStyleBackColor = false;
             this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
             // 
             // TransferTicketDialog

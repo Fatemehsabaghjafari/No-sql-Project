@@ -190,8 +190,8 @@ namespace DemoApp
         {
             TicketslistView.Items.Clear();
             TicketslistView.Columns.Clear();
-            TicketslistView.Columns.Add("ID", 100);
-            TicketslistView.Columns.Add("Subject", 300);
+            TicketslistView.Columns.Add("ID", 150);
+            TicketslistView.Columns.Add("Subject", 150);
             TicketslistView.Columns.Add("User", 150);
             TicketslistView.Columns.Add("Date", 150);
             TicketslistView.Columns.Add("Status", 150);

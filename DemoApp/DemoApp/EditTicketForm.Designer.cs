@@ -33,6 +33,10 @@
             this.userTextBox = new System.Windows.Forms.TextBox();
             this.EditDeadlinePicker = new System.Windows.Forms.DateTimePicker();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.Description = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SaveChangesBtn
@@ -63,7 +67,7 @@
             // 
             // EditDeadlinePicker
             // 
-            this.EditDeadlinePicker.Location = new System.Drawing.Point(97, 201);
+            this.EditDeadlinePicker.Location = new System.Drawing.Point(97, 213);
             this.EditDeadlinePicker.Name = "EditDeadlinePicker";
             this.EditDeadlinePicker.Size = new System.Drawing.Size(200, 22);
             this.EditDeadlinePicker.TabIndex = 18;
@@ -76,11 +80,51 @@
             this.statusComboBox.Size = new System.Drawing.Size(121, 24);
             this.statusComboBox.TabIndex = 19;
             // 
+            // Description
+            // 
+            this.Description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Description.Location = new System.Drawing.Point(93, 31);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(100, 23);
+            this.Description.TabIndex = 20;
+            this.Description.Text = "Description:";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(93, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Name:";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(93, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Date: ";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(93, 238);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Status:";
+            // 
             // EditTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 418);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.EditDeadlinePicker);
             this.Controls.Add(this.userTextBox);
@@ -100,5 +144,9 @@
         private System.Windows.Forms.TextBox userTextBox;
         private System.Windows.Forms.DateTimePicker EditDeadlinePicker;
         private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.Label Description;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

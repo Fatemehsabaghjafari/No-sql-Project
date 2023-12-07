@@ -171,9 +171,9 @@ namespace DemoApp
             {
                 if (loggedInEmployee != null)
                 {
-                    AddTicket addTicketForm = new AddTicket(loggedInEmployee);
-                    addTicketForm.Owner = this; // Set the owner form to Form1
-                    addTicketForm.ShowDialog();
+                    AddEmployee addEmployee = new AddEmployee(loggedInEmployee);
+                    addEmployee.Owner = this; // Set the owner form to Form1
+                    addEmployee.ShowDialog();
                 }
                 else
                 {

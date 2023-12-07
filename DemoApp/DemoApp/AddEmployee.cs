@@ -18,10 +18,12 @@ namespace DemoApp
     public partial class AddEmployee : Form
     {
         private EmployeeService employeeService;
-        public AddEmployee()
+        private Employee loggedInEmployee;
+        public AddEmployee(Employee employee)
         {
             InitializeComponent();
             employeeService = new EmployeeService();
+            loggedInEmployee = employee;
         }
 
         private void cancelUserBtn_Click(object sender, EventArgs e)
